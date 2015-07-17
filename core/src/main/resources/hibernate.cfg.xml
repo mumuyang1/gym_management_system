@@ -10,7 +10,7 @@
         <!--数据库驱动-->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <!--数据库驱动-->
-        <property name="connection.url">jdbc:mysql://localhost:3306/user_management</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/gym_management_system</property>
         <!--数据库用户密码-->
         <property name="connection.username">root</property>
         <!--显示执行的SQL语句-->
@@ -19,5 +19,6 @@
         <property name="hibernate.current_session_context_class">thread</property>
         <!--映射文件-->
         <mapping resource="user.hbm.xml"/>
+        <mapping resource="empolyee.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

@@ -21,7 +21,7 @@ apply plugin: 'org.flywaydb.flyway'
 apply plugin: 'java'
 
 flyway {
-    url = 'jdbc:mysql://localhost:3306/user_management'
+    url = 'jdbc:mysql://localhost:3306/gym_management_system'
     user = 'root'
     password = ''
     baselineOnMigrate = true

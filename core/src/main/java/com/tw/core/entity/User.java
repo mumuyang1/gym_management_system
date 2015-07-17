@@ -5,55 +5,41 @@ package com.tw.core.entity;
  */
 public class User {
 
-    private int userId;
-    private String name;
-    private String gender;
-    private String mailbox;
-    private int age;
+    private int id;
+    private String userName;
     private String password;
+    private Employee employee;
 
     public User() {
     }
 
-    public int getUserId() {
-        return userId;
+    public User(int id, String userName, String password, Employee employee) {
+        this.id = id;
+        this.userName = userName;
+        this.password = password;
+        this.employee = employee;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public User(String userName, String password, Employee employee) {
+        this.userName = userName;
+        this.password = password;
+        this.employee = employee;
     }
 
-
-    public String getName() {
-        return name;
+    public int getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getGender() {
-        return gender;
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getMailbox() {
-        return mailbox;
-    }
-
-    public void setMailbox(String mailbox) {
-        this.mailbox = mailbox;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     public String getPassword() {
@@ -64,20 +50,12 @@ public class User {
         this.password = password;
     }
 
-    public User(int userId, String name, String gender, String mailbox, int age, String password) {
-        this.userId = userId;
-        this.name = name;
-        this.gender = gender;
-        this.mailbox = mailbox;
-        this.age = age;
-        this.password = password;
+    public String getUserName() {
+        return userName;
     }
 
-    public User(String name, String gender, String mailbox, int age, String password) {
-        this.name = name;
-        this.gender = gender;
-        this.mailbox = mailbox;
-        this.age = age;
-        this.password = password;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
+
 }

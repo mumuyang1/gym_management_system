@@ -1,5 +1,6 @@
 package com.tw.core.dao.hibernateDao;
 
+import com.tw.core.entity.Employee;
 import com.tw.core.entity.User;
 import com.tw.core.utils.HibernateUtil;
 import org.hibernate.Query;
@@ -14,6 +15,16 @@ import java.util.List;
 @Repository
 public class HibernateUserDao {
 
+//    public void insertUser(User user) {
+//
+//        user.setPassword(MD5Util.md5(user.getPassword()));
+//        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+//        session.beginTransaction();
+//
+//        session.save(user);
+//        session.getTransaction().commit();
+//    }
+
     public void insertUser(User user) {
 
         user.setPassword(MD5Util.md5(user.getPassword()));
@@ -22,6 +33,15 @@ public class HibernateUserDao {
 
         session.save(user);
         session.getTransaction().commit();
+    }
+    public int insertEmployee(Employee employee) {
+
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        int employeeId = (Integer)session.save(employee);
+        session.getTransaction().commit();
+
+        return employeeId;
     }
 
     public void deleteUserById(int id) {
@@ -85,6 +105,8 @@ public class HibernateUserDao {
 
         return count != 0;
     }
+
+
 
     public static void main(String[] args){
 

@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.tw.core.entity.User" table="users">
+    <class name="com.tw.core.entity.Employee" table="employees">
         <id name="id" column="id">
             <generator class="increment"/>
         </id>
-        <property name="userName" column="userName" />
-        <property name="password" column="password" />
-        <many-to-one name="employee" column="employee_id" unique="true">
-        </many-to-one>
+        <property name="name" column="name" />
+        <property name="gender" column="gender" />
+        <property name="email" column="email" />
+        <property name="position" column="position" />
     </class>
 </hibernate-mapping>

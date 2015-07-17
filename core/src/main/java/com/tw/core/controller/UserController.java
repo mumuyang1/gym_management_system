@@ -1,10 +1,10 @@
 package com.tw.core.controller;
 
+import com.tw.core.entity.Employee;
 import com.tw.core.entity.User;
 import com.tw.core.service.UserService;
 import com.tw.core.utils.CookieUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -22,40 +22,40 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
-    public ModelAndView showIndex(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
-
-        ModelAndView modelAndView = new ModelAndView();
-        String user = (String) session.getAttribute("user");
-
-        if (user == "login") {
-            modelAndView.setViewName("index");
-            modelAndView.addObject("userList", userService.getUsers());
-            return modelAndView;
-        } else {
-
-            modelAndView.setViewName("login");
-            CookieUtil.addCurrentURLToCookies(request, response);
-            return modelAndView;
-        }
-    }
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    @ResponseStatus(HttpStatus.OK)
-    public void deleteUser(@PathVariable("id") int id) {
-
-        userService.deleteUserBy(id);
-    }
-
-    @RequestMapping(value = "/creation", method = RequestMethod.POST)
-    public ModelAndView insertUser(@RequestParam String name, String gender, String mailbox, int age, String password) {
-
-        User user = new User(name, gender, mailbox, age, password);
-
-        userService.insertUser(user);
-
-        return new ModelAndView("redirect:/users");
-    }
+//    @RequestMapping(value = "", method = RequestMethod.GET)
+//    public ModelAndView showIndex(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+//
+//        ModelAndView modelAndView = new ModelAndView();
+//        String user = (String) session.getAttribute("user");
+//
+//        if (user == "login") {
+//            modelAndView.setViewName("index");
+//            modelAndView.addObject("userList", userService.getUsers());
+//            return modelAndView;
+//        } else {
+//
+//            modelAndView.setViewName("login");
+//            CookieUtil.addCurrentURLToCookies(request, response);
+//            return modelAndView;
+//        }
+//    }
+//
+//    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+//    @ResponseStatus(HttpStatus.OK)
+//    public void deleteUser(@PathVariable("id") int id) {
+//
+//        userService.deleteUserBy(id);
+//    }
+//
+//    @RequestMapping(value = "/creation", method = RequestMethod.POST)
+//    public ModelAndView insertUser(@RequestParam String name, String gender, String mailbox, int age, String password) {
+//
+//        User user = new User(name, gender, mailbox, age, password);
+//
+//        userService.insertUser(user);
+//
+//        return new ModelAndView("redirect:/users");
+//    }
 
     @RequestMapping(value = "/creation", method = RequestMethod.GET)
     public ModelAndView getInsertPage(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
@@ -91,13 +91,29 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public void updateUser(@PathVariable int id, @RequestParam String name, String gender, String mailbox, int age, String password) {
+//    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+//    public void updateUser(@PathVariable int id, @RequestParam String name, String gender, String mailbox, int age, String password) {
+//
+//        User user = new User(id, name, gender, mailbox, age, password);
+//
+//        userService.updateUser(user);
+//    }
 
-        User user = new User(id, name, gender, mailbox, age, password);
+    @RequestMapping(value = "/sign-up", method = RequestMethod.GET)
+    public ModelAndView signUp() {
 
-        userService.updateUser(user);
+      return new ModelAndView("register");
+
     }
 
+    @RequestMapping(value = "/sign-up", method = RequestMethod.POST)
+    public void signUp(@RequestParam String userName, String password, String gender,String name, String email, String postion) {
 
+        Employee employee = new Employee(name,gender,email,postion);
+
+        int employeeId = userService.insertEmployee(employee);
+        User user = new User(userName,password,new Employee(employeeId));
+
+        userService.insertUser(user);
+    }
 }

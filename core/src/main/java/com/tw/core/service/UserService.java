@@ -1,6 +1,7 @@
 package com.tw.core.service;
 
 import com.tw.core.dao.hibernateDao.HibernateUserDao;
+import com.tw.core.entity.Employee;
 import com.tw.core.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,8 +14,6 @@ import java.util.List;
 @Service
 public class UserService {
 
-    //    private UserDao userDao = new UserDao();
-//    private HibernateUserDao hibernateUserDao = new HibernateUserDao();
     @Autowired private HibernateUserDao hibernateUserDao;
 
     public List<User> getUsers() {
@@ -44,6 +43,12 @@ public class UserService {
 
     public boolean login(String name, String password){
 
-        return  hibernateUserDao.login(name,password);
+        return  hibernateUserDao.login(name, password);
     }
+
+    public int insertEmployee(Employee employee){
+
+        return hibernateUserDao.insertEmployee(employee);
+    }
+
 }
