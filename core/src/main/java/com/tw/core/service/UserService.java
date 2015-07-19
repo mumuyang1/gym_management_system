@@ -1,6 +1,6 @@
 package com.tw.core.service;
 
-import com.tw.core.dao.hibernateDao.HibernateUserDao;
+import com.tw.core.dao.hibernateDao.UserDao;
 import com.tw.core.entity.Employee;
 import com.tw.core.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,41 +14,41 @@ import java.util.List;
 @Service
 public class UserService {
 
-    @Autowired private HibernateUserDao hibernateUserDao;
+    @Autowired private UserDao userDao;
 
     public List<User> getUsers() {
 
-        return hibernateUserDao.getUsers();
+        return userDao.getUsers();
     }
 
     public void deleteUserBy(int id) {
 
-        hibernateUserDao.deleteUserById(id);
+        userDao.deleteUserById(id);
     }
 
     public void insertUser(User user) {
 
-        hibernateUserDao.insertUser(user);
+        userDao.insertUser(user);
     }
 
     public void updateUser(User user) {
 
-        hibernateUserDao.updateUser(user);
+        userDao.updateUser(user);
     }
 
     public User getUserBy(int id) {
 
-        return hibernateUserDao.getUserById(id);
+        return userDao.getUserById(id);
     }
 
     public boolean login(String name, String password){
 
-        return  hibernateUserDao.login(name, password);
+        return  userDao.login(name, password);
     }
 
     public int insertEmployee(Employee employee){
 
-        return hibernateUserDao.insertEmployee(employee);
+        return userDao.insertEmployee(employee);
     }
 
 }

@@ -15,7 +15,7 @@
 
 <div align="center">
   <form action="/web/users/sign-up" method="post">
-    登录名:&nbsp;<input type="text" name="userName"></br>
+    登录名:&nbsp;<input type="text" name="userName"></br></br>
     密&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;<input type="password" name="password"/></br></br>
     姓&nbsp;&nbsp;&nbsp;&nbsp;名:&nbsp;<input type="text" name="name"></br></br>
     性&nbsp;&nbsp;&nbsp;&nbsp;别:&nbsp;<input type="text" name="gender"/></br></br>

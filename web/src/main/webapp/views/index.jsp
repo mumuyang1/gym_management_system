@@ -14,30 +14,34 @@
 </head>
 <body>
 
-<table align="center" border="2" bgcolor="#ffc0cb">
-  <tr align="center">
-    <td>姓名</td>
-    <td>性别</td>
-    <td>邮箱</td>
-    <td>年龄</td>
-    <td>删除</td>
-    <td>更新用户信息</td>
-  </tr>
-  <c:forEach var = "user" items="${userList}" >
-  <tr align="center">
-    <td><c:out value="${user.name}" /></td>
-    <td><c:out value="${user.gender}" /></td>
-    <td><c:out value="${user.mailbox}" /></td>
-    <td><c:out value="${user.age}" /></td>
-    <td><a href="javascript:;"onclick="deleteUser(<c:out value="${user.userId}" />);">删除</a></td>
-    <td>
-      <button type="button" style="border-color: white" align="center" onclick="location = '/web/users/<c:out value="${user.userId}"/>'">更新用户信息</button>
-               </td>
-   </tr>
-  </c:forEach>
-</table></br>
+<button type="button" style="border-color: pink" align="center" onclick="location = '/web/courses>'">课程管理</button>
+<button type="button" style="border-color: pink" align="center" onclick="location = '/web/users>'">员工管理</button>
 
-<div align="center"><button type="button" style="border-color: pink" onclick="location = '/web/users/creation'">增加用户</button></div>
+<%--<table align="center" border="2" bgcolor="#ffc0cb">--%>
+  <%--<tr align="center">--%>
+    <%--<td>姓名</td>--%>
+    <%--<td>性别</td>--%>
+    <%--<td>邮箱</td>--%>
+    <%--<td>年龄</td>--%>
+    <%--<td>删除</td>--%>
+    <%--<td>更新用户信息</td>--%>
+  <%--</tr>--%>
+  <%--<c:forEach var = "user" items="${userList}" >--%>
+  <%--<tr align="center">'--%>
+
+    <%--<td><c:out value="${user.name}" /></td>--%>
+    <%--<td><c:out value="${user.gender}" /></td>--%>
+    <%--<td><c:out value="${user.mailbox}" /></td>--%>
+    <%--<td><c:out value="${user.age}" /></td>--%>
+    <%--<td><a href="javascript:;"onclick="deleteUser(<c:out value="${user.userId}" />);">删除</a></td>--%>
+    <%--<td>--%>
+      <%--<button type="button" style="border-color: white" align="center" onclick="location = '/web/users/<c:out value="${user.userId}"/>'">更新用户信息</button>--%>
+               <%--</td>--%>
+   <%--</tr>--%>
+  <%--</c:forEach>--%>
+<%--</table></br>--%>
+
+<%--<div align="center"><button type="button" style="border-color: pink" onclick="location = '/web/users/creation'">增加用户</button></div>--%>
 
 </body>
 </html>

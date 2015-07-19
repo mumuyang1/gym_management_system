@@ -13,7 +13,7 @@ import java.util.List;
  * Created by yzli on 7/9/15.
  */
 @Repository
-public class HibernateUserDao {
+public class UserDao {
 
 //    public void insertUser(User user) {
 //
@@ -108,8 +108,5 @@ public class HibernateUserDao {
 
 
 
-    public static void main(String[] args){
 
-        System.out.println(new HibernateUserDao().login("苏开","suka"));
-    }
 }

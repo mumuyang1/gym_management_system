@@ -20,8 +20,7 @@ CREATE TABLE courses(
 
 CREATE TABLE schedules(
   id INT AUTO_INCREMENT PRIMARY KEY,
-  coach_id INT NOT NULL,
-  FOREIGN KEY (coach_id) REFERENCES employees(id),
+  date DATE NOT NULL ,
   course_id INT NOT NULL ,
   FOREIGN KEY (course_id) REFERENCES courses(id));
 

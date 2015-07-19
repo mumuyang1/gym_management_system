@@ -22,23 +22,23 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-//    @RequestMapping(value = "", method = RequestMethod.GET)
-//    public ModelAndView showIndex(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
-//
-//        ModelAndView modelAndView = new ModelAndView();
-//        String user = (String) session.getAttribute("user");
-//
-//        if (user == "login") {
-//            modelAndView.setViewName("index");
-//            modelAndView.addObject("userList", userService.getUsers());
-//            return modelAndView;
-//        } else {
-//
-//            modelAndView.setViewName("login");
-//            CookieUtil.addCurrentURLToCookies(request, response);
-//            return modelAndView;
-//        }
-//    }
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public ModelAndView showIndex(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+
+        ModelAndView modelAndView = new ModelAndView();
+        String user = (String) session.getAttribute("user");
+
+        if (user == "login") {
+            modelAndView.setViewName("index");
+            modelAndView.addObject("userList", userService.getUsers());
+            return modelAndView;
+        } else {
+
+            modelAndView.setViewName("login");
+            CookieUtil.addCurrentURLToCookies(request, response);
+            return modelAndView;
+        }
+    }
 //
 //    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 //    @ResponseStatus(HttpStatus.OK)
@@ -109,11 +109,24 @@ public class UserController {
     @RequestMapping(value = "/sign-up", method = RequestMethod.POST)
     public void signUp(@RequestParam String userName, String password, String gender,String name, String email, String postion) {
 
-        Employee employee = new Employee(name,gender,email,postion);
+        Employee employee = new Employee(name,email,gender,postion);
 
         int employeeId = userService.insertEmployee(employee);
         User user = new User(userName,password,new Employee(employeeId));
 
         userService.insertUser(user);
     }
+
+    @RequestMapping(value = "/homepage",method = RequestMethod.GET)
+    public ModelAndView getHomePage(){
+
+        return new ModelAndView("homePage");
+    }
+
+//    @RequestMapping(value = "",method = RequestMethod.GET)
+//    public ModelAndView getEmployeesPage(){
+//
+//        return new ModelAndView("coachManagement");
+//    }
+
 }

@@ -1,0 +1,106 @@
+package com.tw.core.dao.hibernateDao;
+
+import com.tw.core.entity.Course;
+import com.tw.core.utils.HibernateUtil;
+import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
+
+/**
+ * Created by yzli on 7/17/15.
+ */
+@Repository
+public class CourseDao {
+
+//    public void insertUser(User user) {
+//
+//        user.setPassword(MD5Util.md5(user.getPassword()));
+//        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+//        session.beginTransaction();
+//
+//        session.save(user);
+//        session.getTransaction().commit();
+//    }
+
+    public void insertCourse(Course course) {
+
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        session.save(course);
+        session.getTransaction().commit();
+    }
+
+
+
+//    public int insertEmployee(Employee employee) {
+//
+//        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+//        session.beginTransaction();
+//        int employeeId = (Integer)session.save(employee);
+//        session.getTransaction().commit();
+//
+//        return employeeId;
+//    }
+//
+//    public void deleteUserById(int id) {
+//        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+//        session.beginTransaction();
+//
+//        User user = (User) session.load(User.class, id);
+//        session.delete(user);
+//        session.getTransaction().commit();
+//    }
+//
+//    public List<User> getUsers() {
+//        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+//
+//        session.beginTransaction();
+//        Query query = session.createQuery("from User");
+//
+//        List<User> userList = query.list();
+//        session.getTransaction().commit();
+//
+//        return userList;
+//    }
+//
+//
+//    public void updateUser(User user) {
+//
+//        user.setPassword(MD5Util.md5(user.getPassword()));
+//        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+//        session.beginTransaction();
+//
+//        session.update(user);
+//
+//        session.getTransaction().commit();
+//    }
+//
+//    public User getUserById(int id) {
+//
+//        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+//        session.beginTransaction();
+//
+//        User user = (User) session.get(User.class, id);
+//
+//        session.getTransaction().commit();
+//
+//        return user;
+//    }
+//
+//    public boolean login (String name, String password){
+//
+//        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+//        session.beginTransaction();
+//
+//        Query query = session.createQuery("SELECT count(*) FROM User user where user.name = :name and user.password = :password");
+//
+//        query.setParameter("name", name);
+//        query.setParameter("password", MD5Util.md5(password));
+//
+//        Long count = (Long)query.uniqueResult();
+//
+//        session.getTransaction().commit();
+//
+//        return count != 0;
+//    }
+}

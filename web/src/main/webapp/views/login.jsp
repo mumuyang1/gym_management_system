@@ -18,6 +18,8 @@
     密&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;<input type="password" name="password"/></br></br>
     <input  align="center" style="border-color: wheat" type="submit" value="登录" />
   </form>
+    还没有账号？点这里，注册一个免费账号</br></br>
+    <button type="button" style="border-color: pink" align="center" onclick="location = '/web/users/sign-up'">注册</button>
   </div>
 
 </body>

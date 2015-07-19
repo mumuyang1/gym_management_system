@@ -13,6 +13,8 @@ subprojects {
     dependencies {
         testCompile group: 'junit', name: 'junit', version: '4.11'
         compile 'javax.servlet:jstl:1.2'
+        compile 'com.googlecode.rapid-framework:rapid-generator-template:4.0.6'
+
     }
 }
 

@@ -17,8 +17,11 @@
         <property name="connection.password"></property>
 
         <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.enable_lazy_load_no_trans">true</property>
         <!--映射文件-->
         <mapping resource="user.hbm.xml"/>
-        <mapping resource="empolyee.hbm.xml"/>
+        <mapping resource="employee.hbm.xml"/>
+        <mapping class="com.tw.core.entity.Course"/>
+        <mapping class="com.tw.core.entity.Schedule"/>
     </session-factory>
 </hibernate-configuration>
