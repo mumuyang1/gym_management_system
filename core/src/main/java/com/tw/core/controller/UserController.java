@@ -107,9 +107,9 @@ public class UserController {
     }
 
     @RequestMapping(value = "/sign-up", method = RequestMethod.POST)
-    public void signUp(@RequestParam String userName, String password, String gender,String name, String email, String postion) {
+    public void signUp(@RequestParam String userName, String password, String gender,String name, String email, String position) {
 
-        Employee employee = new Employee(name,email,gender,postion);
+        Employee employee = new Employee(name,email,gender,position);
 
         int employeeId = userService.insertEmployee(employee);
         User user = new User(userName,password,new Employee(employeeId));

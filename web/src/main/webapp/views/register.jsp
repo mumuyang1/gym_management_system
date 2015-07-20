@@ -20,7 +20,12 @@
     姓&nbsp;&nbsp;&nbsp;&nbsp;名:&nbsp;<input type="text" name="name"></br></br>
     性&nbsp;&nbsp;&nbsp;&nbsp;别:&nbsp;<input type="text" name="gender"/></br></br>
     邮&nbsp;&nbsp;&nbsp;&nbsp;箱:&nbsp;<input type="email" name="email"/></br></br>
-    职&nbsp;&nbsp;&nbsp;&nbsp;位:&nbsp;<input type="text" name="postion"/></br></br>
+    职&nbsp;&nbsp;&nbsp;&nbsp;位:&nbsp;
+    <select name="position">
+        <option value="COACH">COACH</option>
+        <option value="HR">HR</option>
+        <option value="OPs">OPs</option>
+    </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</br></br>
     <input  align="center" style="border-color: wheat" type="submit" value="创建用户" />
   </form>
 </div>
