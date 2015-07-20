@@ -31,7 +31,7 @@ public class EmployeeDao {
 
         Query query = session.createQuery("from Employee as employee where employee.position=:position");
 
-        query.setParameter("position", "教练");
+        query.setParameter("position", "COACH");
 
         List<Employee> employeeList = query.list();
         session.getTransaction().commit();

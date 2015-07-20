@@ -107,7 +107,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/sign-up", method = RequestMethod.POST)
-    public void signUp(@RequestParam String userName, String password, String gender,String name, String email, String position) {
+    public ModelAndView signUp(@RequestParam String userName, String password, String gender,String name, String email, String position) {
 
         Employee employee = new Employee(name,email,gender,position);
 
@@ -115,6 +115,9 @@ public class UserController {
         User user = new User(userName,password,new Employee(employeeId));
 
         userService.insertUser(user);
+
+        return new ModelAndView("redirect:/courses");
+
     }
 
     @RequestMapping(value = "/homepage",method = RequestMethod.GET)

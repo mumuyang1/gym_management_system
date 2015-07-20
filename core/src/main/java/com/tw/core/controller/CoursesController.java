@@ -58,19 +58,22 @@ public class CoursesController {
     @RequestMapping(value = "/creation",method = RequestMethod.POST)
     public ModelAndView insertCourse(@RequestParam String name,String date,String coachId, HttpSession session,HttpServletRequest request,HttpServletResponse response){
 
-        System.out.println("++++++++++++++++++++++");
-        System.out.println(name+"============");
-        System.out.println(date+"============");
-        System.out.println(coachId+"============");
-
         Employee employee = new Employee(Integer.parseInt(coachId));
         Course course = new Course(employee,name);
         Schedule schedule = new Schedule(course,date);
 
-        courseService.insertCourse(course);
-        scheduleService.insertSchedule(schedule);
+        if (scheduleService.isTheDateAvailable(Integer.parseInt(coachId),date)){
 
-        return new ModelAndView("redirect:/courses");
+            if(!courseService.isCourseExist(name)){
+                courseService.insertCourse(course);
+                scheduleService.insertSchedule(schedule);
 
+            }else {
+                scheduleService.insertSchedule(new Schedule(new Course(courseService.getCourseIdByName(name)),date));
+            }
+            return new ModelAndView("redirect:/courses");
+        }else {
+            return new ModelAndView("dateNotAvailableError");
+        }
     }
 }

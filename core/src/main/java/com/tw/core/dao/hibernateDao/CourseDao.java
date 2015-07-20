@@ -1,6 +1,7 @@
 package com.tw.core.dao.hibernateDao;
 
 import com.tw.core.entity.Course;
+import com.tw.core.entity.Schedule;
 import com.tw.core.utils.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -28,7 +29,7 @@ public class CourseDao {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
 
-        Query query = session.createQuery("from Course as course where employee.id=:coachId");
+        Query query = session.createQuery("from Course  where coach_id =:coachId");
         query.setParameter("coachId", coachId);
 
         List<Course> courseList = query.list();
@@ -38,14 +39,35 @@ public class CourseDao {
         return courseList;
     }
 
-    public static void main(String[] args){
 
-        List<Course> courseList = new CourseDao().getCoursesByCoachId(1);
+    public boolean getCourseByName(String name){
 
-        System.out.println(courseList.get(0).getName()+"??");
-        System.out.println(courseList.size() + "=================");
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
 
-        System.out.println(courseList.get(1).getName());
+        Query query = session.createQuery("SELECT count(*) FROM Course course where course.name = :name");
+
+        query.setParameter("name", name);
+
+        Long count = (Long)query.uniqueResult();
+
+        session.getTransaction().commit();
+
+        return count != 0;
+    }
+
+    public int getCourseIdByName(String name){
+
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        Query query = session.createQuery("SELECT course.id FROM Course course where course.name = :name");
+        query.setParameter("name", name);
+
+        int id = (Integer)query.list().get(0);
+
+        session.getTransaction().commit();
+        return id;
     }
 
 }

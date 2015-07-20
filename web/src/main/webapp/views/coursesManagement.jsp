@@ -16,6 +16,7 @@
             </select>
     时 间: <input style="border-color: pink" name="date" type="date"/>
     <input align="center" style="border-color: wheat" type="submit" value="确定添加"/>
+
 </form>
 
 <table align="center" border="2">
@@ -42,9 +43,9 @@
 </table>
 </br>
 
-<div align="center">
-    <button type="button" style="border-color: pink" onclick="location = '/web/users/creation'">增加课程</button>
-</div>
+<%--<div align="center">--%>
+    <%--<button type="button" style="border-color: pink" onclick="location = '/web/users/creation'">增加课程</button>--%>
+<%--</div>--%>
 
 </body>
 </html>
