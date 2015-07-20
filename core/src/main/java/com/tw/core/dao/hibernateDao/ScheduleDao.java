@@ -37,6 +37,17 @@ public class ScheduleDao {
         return scheduleList;
     }
 
+    public Schedule getScheduleById(int id) {
+
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        Schedule schedule = (Schedule) session.get(Schedule.class, id);
+
+        session.getTransaction().commit();
+        return schedule;
+    }
+
     public void deleteScheduleById(int id){
 
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -61,5 +72,14 @@ public class ScheduleDao {
         session.getTransaction().commit();
 
         return count == 0;
+    }
+
+    public void updateSchedule(Schedule schedule){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        session.update(schedule);
+
+        session.getTransaction().commit();
     }
 }

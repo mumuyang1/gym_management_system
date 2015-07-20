@@ -22,6 +22,12 @@ public class Schedule {
         this.date = date;
     }
 
+    public Schedule(int id, Course course, String date) {
+        this.id = id;
+        this.course = course;
+        this.date = date;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {

@@ -52,7 +52,17 @@ public class ScheduleService {
         boolean courseList = new ScheduleService().isTheDateAvailable(1, "2015-07-30");
 //        System.out.println(courseList.get(0).getName()+"===========");
 
-        System.out.println(courseList+"===========");
+        System.out.println(courseList + "===========");
+
+    }
+
+    public Schedule getScheduleById(int id){
+        return scheduleDao.getScheduleById(id);
+    }
+
+    public void updateSchedule(Schedule schedule){
+
+        scheduleDao.updateSchedule(schedule);
 
     }
 

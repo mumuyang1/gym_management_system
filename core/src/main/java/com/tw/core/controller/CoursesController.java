@@ -28,21 +28,21 @@ public class CoursesController {
     @Autowired
     private EmployeeService employeeService;
 
-    @RequestMapping(value = "",method = RequestMethod.GET)
-    public ModelAndView getCoursesPage(HttpSession session,HttpServletRequest request,HttpServletResponse response){
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public ModelAndView getCoursesPage(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
 
         ModelAndView modelAndView = new ModelAndView();
         String user = (String) session.getAttribute("user");
 
 //        if (user == "login") {
-            modelAndView.setViewName("coursesManagement");
-            modelAndView.addObject("scheduleList", scheduleService.getSchedules());
+        modelAndView.setViewName("coursesManagement");
+        modelAndView.addObject("scheduleList", scheduleService.getSchedules());
 //            System.out.println("=========================");
 //            System.out.println(scheduleService.getSchedules().get(0).getDate());
 //            System.out.println(scheduleService.getSchedules().get(0).getCourse().getName());
 //            System.out.println(scheduleService.getSchedules().get(0).getCourse().getEmployee().getName());
 
-            modelAndView.addObject("coachList", employeeService.getCoaches());
+        modelAndView.addObject("coachList", employeeService.getCoaches());
 
         return modelAndView;
 //        } else {
@@ -52,31 +52,67 @@ public class CoursesController {
 //        }
     }
 
-    @RequestMapping(value = "/creation",method = RequestMethod.POST)
-    public ModelAndView insertCourse(@RequestParam String name,String date,String coachId, HttpSession session,HttpServletRequest request,HttpServletResponse response){
+    @RequestMapping(value = "/creation", method = RequestMethod.POST)
+    public ModelAndView insertCourse(@RequestParam String name, String date, String coachId, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
 
         Employee employee = new Employee(Integer.parseInt(coachId));
-        Course course = new Course(employee,name);
-        Schedule schedule = new Schedule(course,date);
+        Course course = new Course(employee, name);
+        Schedule schedule = new Schedule(course, date);
 
-        if (scheduleService.isTheDateAvailable(Integer.parseInt(coachId),date)){
+        if (scheduleService.isTheDateAvailable(Integer.parseInt(coachId), date)) {
 
-            if(!courseService.isCourseExist(name)){
+            if (!courseService.isCourseExist(name)) {
                 courseService.insertCourse(course);
                 scheduleService.insertSchedule(schedule);
 
-            }else {
-                scheduleService.insertSchedule(new Schedule(new Course(courseService.getCourseIdByName(name)),date));
+            } else {
+                scheduleService.insertSchedule(new Schedule(new Course(courseService.getCourseIdByName(name)), date));
             }
             return new ModelAndView("redirect:/courses");
-        }else {
+        } else {
             return new ModelAndView("dateNotAvailableError");
         }
     }
 
-    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
-    public void deleteCourse(@PathVariable int id){
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void deleteCourse(@PathVariable int id) {
 
         scheduleService.deleteScheduleById(id);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ModelAndView getUserById(@PathVariable int id, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+
+        ModelAndView modelAndView = new ModelAndView();
+//        String user = (String) session.getAttribute("user");
+
+//        if (user == "login") {
+        modelAndView.setViewName("updateSchedule");
+        modelAndView.addObject("schedule", scheduleService.getScheduleById(id));
+        modelAndView.addObject("coachList", employeeService.getCoaches());
+
+        return modelAndView;
+//        } else {
+//            CookieUtil.addCurrentURLToCookies(request, response);
+//
+//            modelAndView.setViewName("login");
+//            return modelAndView;
+//        }
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public String updateUser(@PathVariable int id, @RequestParam String date, String courseId,String coachId) {
+
+
+        if (scheduleService.isTheDateAvailable(Integer.parseInt(coachId), date)) {
+            Course course = new Course(Integer.parseInt(courseId));
+
+            Schedule schedule = new Schedule(id,course, date);
+            scheduleService.updateSchedule(schedule);
+            return null;
+        } else {
+            System.out.println("+++++++++++++++++");
+            return "timeNotAvailable";
+        }
     }
 }

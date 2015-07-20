@@ -28,6 +28,8 @@ public class Course {
         this.name = name;
         this.employee = employee;
     }
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public int getId() {

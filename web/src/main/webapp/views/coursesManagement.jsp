@@ -14,9 +14,9 @@
 
 <form align="center" action="/web/courses/creation" method="post">
     课程名: <input style="border-color: pink" type="text" name="name"/>
-    教 练: <select name="coachId">
-        <c:forEach var="coach" items="${coachList}">
-             <option value="<c:out value="${coach.id}"/>"><c:out value="${coach.name}"/></option>
+    教 练: <select  name="coachId">
+        <c:forEach  var="coach" items="${coachList}">
+            <option value="<c:out value="${coach.id}"/>"><c:out value="${coach.name}"/></option>
         </c:forEach>
             </select>
     时 间: <input style="border-color: pink" name="date" type="date"/>
@@ -40,7 +40,7 @@
             <td><a href="javascript:;" onclick="deleteASchedule(<c:out value="${schedule.id}"/>);">删除</a></td>
             <td>
                 <button type="button" style="border-color: white" align="center"
-                        onclick="location = '/web/users/<c:out value="${user.userId}"/>'">更新
+                        onclick="location = '/web/courses/<c:out value="${schedule.id}"/>'">更新
                 </button>
             </td>
         </tr>
