@@ -7,10 +7,7 @@ import com.tw.core.service.CourseService;
 import com.tw.core.service.EmployeeService;
 import com.tw.core.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -75,5 +72,11 @@ public class CoursesController {
         }else {
             return new ModelAndView("dateNotAvailableError");
         }
+    }
+
+    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
+    public void deleteCourse(@PathVariable int id){
+
+        scheduleService.deleteScheduleById(id);
     }
 }

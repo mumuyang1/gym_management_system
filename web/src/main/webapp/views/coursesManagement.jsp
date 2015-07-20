@@ -1,8 +1,13 @@
+<%@ taglib uri="http://www.springframework.org/tags"  prefix="spring"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title></title>
+    <spring:url value="/lib/js/course.js" var="courseJs" />
+    <script src="${courseJs}"></script>
+    <spring:url value="/lib/js/jquery-1.11.1.min.js" var="jquery"/>
+        <script src="${jquery}"></script>
 </head>
 <body>
 <h3>课程管理</h3></br>
@@ -32,7 +37,7 @@
             <td><c:out value="${schedule.course.name}"/></td>
             <td><c:out value="${schedule.course.employee.name}"/></td>
             <td><c:out value="${schedule.date}"/></td>
-            <td><a href="javascript:;" onclick="deleteUser(<c:out value="${schedule.id}"/>);">删除</a></td>
+            <td><a href="javascript:;" onclick="deleteASchedule(<c:out value="${schedule.id}"/>);">删除</a></td>
             <td>
                 <button type="button" style="border-color: white" align="center"
                         onclick="location = '/web/users/<c:out value="${user.userId}"/>'">更新

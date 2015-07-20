@@ -43,6 +43,9 @@ public class ScheduleService {
         return true;
     }
 
+    public void deleteScheduleById(int id){
+        scheduleDao.deleteScheduleById(id);
+    }
 
     public static void main(String[] args){
 
