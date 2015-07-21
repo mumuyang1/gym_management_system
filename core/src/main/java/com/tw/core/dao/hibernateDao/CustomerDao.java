@@ -26,6 +26,10 @@ public class CustomerDao {
         session.getTransaction().commit();
     }
 
+    public void updateCustomerCourse(){
+
+    }
+
     public List<Customer> getCustomers(){
 
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
