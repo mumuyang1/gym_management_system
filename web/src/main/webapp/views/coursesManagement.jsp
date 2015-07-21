@@ -35,6 +35,16 @@
       </div>
     </div>
   </nav>
+  <div align="center">
+  <c:if test="${courseToBeUpdated != null}">
+    <form  id="updateCourseForm">
+      课程: <input style="border-color: green" type="text" value="${courseToBeUpdated.name}" name="name"/>
+      <input id="idInput" type="text" value="${courseToBeUpdated.id}" name="id" hidden/>
+      <input align="center" style="border-color: green" type="submit"
+             onclick="updateCourse(<c:out value="${courseToBeUpdated.id}"/>);" value="更新"/>
+    </form>
+  </c:if>
+    </div>
   <table align="center" border="2" bgcolor="#ffc0cb">
     <tr align="center">
       <td>课程</td>
@@ -47,7 +57,7 @@
         <td><a href="javascript:;" onclick="deleteCourse(<c:out value="${course.id}"/>);">删除</a></td>
         <td>
           <button type="button" align="center"
-                  onclick="location = '/web/courses/<c:out value="${course.id}"/>'">更新用户信息
+                  onclick="location = '/web/courses/<c:out value="${course.id}"/>'">更新
           </button>
         </td>
       </tr>

@@ -1,10 +1,10 @@
 package com.tw.core.controller;
 
+import com.tw.core.entity.Course;
+import com.tw.core.entity.Employee;
 import com.tw.core.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,5 +29,25 @@ public class CourseController {
         modelAndView.addObject("courseList", courseService.getCourses());
 
         return modelAndView;
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ModelAndView showUpdate(@PathVariable int id) {
+
+        ModelAndView modelAndView = new ModelAndView();
+
+        modelAndView.setViewName("coursesManagement");
+        modelAndView.addObject("courseList", courseService.getCourses());
+
+        modelAndView.addObject("courseToBeUpdated", courseService.getCourse(id));
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public void updateCustomer(@PathVariable int id,@RequestParam String name) {
+
+        System.out.println("++++++++++");
+        courseService.updateCourse(new Course(id, name,new Employee()));
     }
 }

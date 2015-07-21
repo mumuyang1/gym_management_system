@@ -60,6 +60,21 @@ public class CourseDao {
         return courseList;
     }
 
+    public Course getCourse(int id){
+
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        Query query = session.createQuery("from Course  where id =:id");
+        query.setParameter("id", id);
+
+        Course course = (Course)query.list().get(0);
+
+        session.getTransaction().commit();
+
+        return course;
+    }
+
 
     public boolean getCourseByName(String name){
 
@@ -91,4 +106,17 @@ public class CourseDao {
         return id;
     }
 
+    public void updateCourse(Course course){
+
+        System.out.println("更新更新更新更新更新更新更新更新更新更新更新更新更新更新更新更新更新");
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        Query query = session.createQuery("update Course c set c.name = :name where id = :id");
+        query.setParameter("id", course.getId());
+        query.setParameter("name", course.getName());
+        query.executeUpdate();
+
+        session.getTransaction().commit();
+    }
 }

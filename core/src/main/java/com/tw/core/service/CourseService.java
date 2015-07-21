@@ -36,4 +36,12 @@ public class CourseService {
     public List<Course> getCourses(){
         return courseDao.getCourses();
     }
+
+    public Course getCourse(int id){
+        return courseDao.getCourse(id);
+    }
+
+    public void updateCourse(Course course){
+        courseDao.updateCourse(course);
+    }
 }

@@ -30,6 +30,11 @@ public class Course {
         this.employee = employee;
     }
 
+    public Course(int id, String name, Employee employee) {
+        this.id = id;
+        this.name = name;
+        this.employee = employee;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

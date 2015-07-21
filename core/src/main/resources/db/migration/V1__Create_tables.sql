@@ -16,7 +16,7 @@ CREATE TABLE courses(
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR (50) NOT NULL ,
   coach_id INT NOT NULL,
-  FOREIGN KEY(coach_id) REFERENCES employees(id));
+  FOREIGN KEY(coach_id) REFERENCES employees(id) ON DELETE CASCADE );
 
 CREATE TABLE customers(
   id INT AUTO_INCREMENT PRIMARY KEY,
