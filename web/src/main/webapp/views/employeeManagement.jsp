@@ -1,14 +1,11 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <spring:url value="/lib/css/bootstrap.min.css" var="bootstrapCss"/>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link href="${bootstrapCss}" rel="stylesheet"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title></title>
-    <spring:url value="/lib/js/schedule.js" var="courseJs"/>
-    <script src="${courseJs}"></script>
     <spring:url value="/lib/js/jquery-1.11.1.min.js" var="jquery"/>
     <script src="${jquery}"></script>
 </head>
@@ -30,6 +27,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">员工管理</a></li>
+                    <li><a href="/web/courses">课程管理</a></li>
                     <li><a href="/web/schedules">课表管理</a></li>
                     <li><a href="/web/customers">顾客管理</a></li>
                 </ul>

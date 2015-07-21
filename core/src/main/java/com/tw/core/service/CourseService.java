@@ -32,4 +32,8 @@ public class CourseService {
 
         return courseDao.getCoursesByCoachId(coachId);
     }
+
+    public List<Course> getCourses(){
+        return courseDao.getCourses();
+    }
 }

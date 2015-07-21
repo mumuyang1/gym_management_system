@@ -33,7 +33,7 @@ public class ScheduleController {
     private CustomerService customerService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ModelAndView getCoursesPage(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView getSchedulePage(HttpServletRequest request, HttpServletResponse response) {
 
         ModelAndView modelAndView = new ModelAndView();
 

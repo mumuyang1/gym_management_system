@@ -23,6 +23,19 @@ public class CourseDao {
         session.getTransaction().commit();
     }
 
+    public List<Course> getCourses() {
+
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        List<Course> courseList = session.createQuery("from Course").list();
+        session.getTransaction().commit();
+
+        return courseList;
+    }
+
+
+
 //    public void updateCustomerCourse(){
 //
 //        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
