@@ -72,6 +72,8 @@ public class UserDao {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
 
+        System.out.println("++++++++++????????????????++++++++++++++");
+
         session.update(user);
 
         session.getTransaction().commit();

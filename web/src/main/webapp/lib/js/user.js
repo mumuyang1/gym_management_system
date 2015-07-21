@@ -12,6 +12,23 @@ function deleteUser(id) {
     })
 }
 
+function updateUser(id) {
+
+    var frm = $('#updateUserInfoForm');
+
+    frm.submit(function (ev) {
+        $.ajax({
+            type: "PUT",
+            url: "/web/users/" + id,
+            data: frm.serialize(),
+            success: function (data) {
+                window.location = "http://localhost:8080/web/employees";
+            }
+        });
+        ev.preventDefault();
+    });
+}
+
 
 
 

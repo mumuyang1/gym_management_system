@@ -7,7 +7,7 @@
         </id>
         <property name="userName" column="userName" />
         <property name="password" column="password" />
-        <many-to-one name="employee" column="employee_id" unique="true">
+        <many-to-one name="employee" column="employee_id" unique="true" cascade="save-update">
         </many-to-one>
     </class>
 </hibernate-mapping>

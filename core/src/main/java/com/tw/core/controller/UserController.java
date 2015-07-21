@@ -47,16 +47,6 @@ public class UserController {
 
         userService.deleteUserBy(id);
     }
-//
-//    @RequestMapping(value = "/creation", method = RequestMethod.POST)
-//    public ModelAndView insertUser(@RequestParam String name, String gender, String mailbox, int age, String password) {
-//
-//        User user = new User(name, gender, mailbox, age, password);
-//
-//        userService.insertUser(user);
-//
-//        return new ModelAndView("redirect:/users");
-//    }
 
     @RequestMapping(value = "/creation", method = RequestMethod.GET)
     public ModelAndView getInsertPage(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
@@ -74,31 +64,24 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ModelAndView getUserById(@PathVariable int id, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
-
-        ModelAndView modelAndView = new ModelAndView();
-        String user = (String) session.getAttribute("user");
-
-        if (user == "login") {
-            modelAndView.setViewName("updateUser");
-            modelAndView.addObject("user", userService.getUserBy(id));
-            return modelAndView;
-        } else {
-            CookieUtil.addCurrentURLToCookies(request, response);
-
-            modelAndView.setViewName("login");
-            return modelAndView;
-        }
-    }
-
-//    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-//    public void updateUser(@PathVariable int id, @RequestParam String name, String gender, String mailbox, int age, String password) {
+//    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+//    public ModelAndView getUserById(@PathVariable int id, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
 //
-//        User user = new User(id, name, gender, mailbox, age, password);
+//        ModelAndView modelAndView = new ModelAndView();
+//        String user = (String) session.getAttribute("user");
 //
-//        userService.updateUser(user);
+//        if (user == "login") {
+//            modelAndView.setViewName("updateUser");
+//            modelAndView.addObject("user", userService.getUserBy(id));
+//            return modelAndView;
+//        } else {
+//            CookieUtil.addCurrentURLToCookies(request, response);
+//
+//            modelAndView.setViewName("login");
+//            return modelAndView;
+//        }
 //    }
+
 
     @RequestMapping(value = "/sign-up", method = RequestMethod.GET)
     public ModelAndView signUp() {
@@ -127,10 +110,24 @@ public class UserController {
         return new ModelAndView("homePage");
     }
 
-//    @RequestMapping(value = "",method = RequestMethod.GET)
-//    public ModelAndView getEmployeesPage(){
-//
-//        return new ModelAndView("coachManagement");
-//    }
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ModelAndView showUpdate(@PathVariable int id) {
+
+        ModelAndView modelAndView = new ModelAndView();
+
+        modelAndView.setViewName("employeeManagement");
+        modelAndView.addObject("userList", userService.getUsers());
+        modelAndView.addObject("userToBeUpdated", userService.getUserBy(id));
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public void updateUser(@PathVariable int id,@RequestParam String userName, String password,String employeeId,
+                                                              String name, String gender,
+                                                              String email, String position) {
+
+        userService.updateUser(new User(id,userName,password,new Employee(Integer.parseInt(employeeId),name,email,gender,position)));
+    }
 
 }
