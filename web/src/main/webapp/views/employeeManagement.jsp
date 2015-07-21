@@ -4,7 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link href="${bootstrapCss}" rel="stylesheet"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title></title>
@@ -29,8 +28,8 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">员工管理</a></li>
-                    <li><a href="#">课程管理</a></li>
-                    <li><a href="#">顾客管理</a></li>
+                    <li><a href="/web/courses">课程管理</a></li>
+                    <li><a href="/web/customers">顾客管理</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
