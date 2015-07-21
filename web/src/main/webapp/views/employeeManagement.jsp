@@ -6,6 +6,8 @@
 <html>
 <head>
     <title></title>
+    <spring:url value="/lib/js/user.js" var="userJs"/>
+    <script src="${userJs}"></script>
     <spring:url value="/lib/js/jquery-1.11.1.min.js" var="jquery"/>
     <script src="${jquery}"></script>
 </head>

@@ -5,6 +5,7 @@ import com.tw.core.entity.User;
 import com.tw.core.service.UserService;
 import com.tw.core.utils.CookieUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -39,13 +40,13 @@ public class UserController {
             return modelAndView;
         }
     }
-//
-//    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-//    @ResponseStatus(HttpStatus.OK)
-//    public void deleteUser(@PathVariable("id") int id) {
-//
-//        userService.deleteUserBy(id);
-//    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteUser(@PathVariable("id") int id) {
+
+        userService.deleteUserBy(id);
+    }
 //
 //    @RequestMapping(value = "/creation", method = RequestMethod.POST)
 //    public ModelAndView insertUser(@RequestParam String name, String gender, String mailbox, int age, String password) {

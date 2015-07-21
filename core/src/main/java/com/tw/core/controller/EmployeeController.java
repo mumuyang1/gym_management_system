@@ -9,7 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  * Created by yzli on 7/18/15.
@@ -22,21 +21,15 @@ public class EmployeeController {
     private UserService userService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ModelAndView getEmployeePage(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView getEmployeePage(HttpServletRequest request, HttpServletResponse response) {
 
         ModelAndView modelAndView = new ModelAndView();
-        String user = (String) session.getAttribute("user");
 
-//        if (user == "login") {
         modelAndView.setViewName("employeeManagement");
         modelAndView.addObject("userList", userService.getUsers());
 
-
         return modelAndView;
-//        } else {
-//            modelAndView.setViewName("login");
-//            CookieUtil.addCurrentURLToCookies(request, response);
-//            return modelAndView;
-//        }
     }
+
+
 }
