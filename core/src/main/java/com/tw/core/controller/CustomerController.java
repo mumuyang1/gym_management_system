@@ -3,10 +3,7 @@ package com.tw.core.controller;
 import com.tw.core.entity.Customer;
 import com.tw.core.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,12 +32,40 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/creation", method = RequestMethod.POST)
-    public ModelAndView insertCustomer(@RequestParam String name,HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView insertCustomer(@RequestParam String name, HttpServletRequest request, HttpServletResponse response) {
 
-        String user = (String) session.getAttribute("user");
 
         customerService.insertCustomer(new Customer(name));
 
         return new ModelAndView("redirect:/customers");
     }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void deleteCustomer(@PathVariable int id,HttpServletRequest request, HttpServletResponse response) {
+
+        customerService.deleteCustomer(id);
+
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

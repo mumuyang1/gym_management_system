@@ -1,12 +1,16 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <spring:url value="/lib/css/bootstrap.min.css" var="bootstrapCss"/>
-<%@ taglib uri="http://www.springframework.org/tags"  prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link href="${bootstrapCss}" rel="stylesheet"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title></title>
+    <spring:url value="/lib/js/course.js" var="courseJs"/>
+    <script src="${courseJs}"></script>
+    <spring:url value="/lib/js/jquery-1.11.1.min.js" var="jquery"/>
+    <script src="${jquery}"></script>
 </head>
 <body>
 <div class="container">
@@ -55,7 +59,7 @@
                 <td><c:out value="${user.employee.email}"/></td>
                 <td><a href="javascript:;" onclick="deleteUser(<c:out value="${user.id}"/>);">删除</a></td>
                 <td>
-                    <button type="button"  align="center"
+                    <button type="button" align="center"
                             onclick="location = '/web/users/<c:out value="${user.id}"/>'">更新用户信息
                     </button>
                 </td>
@@ -63,6 +67,7 @@
         </c:forEach>
     </table>
     </br>
-
+    <
+</div>
 </body>
 </html>

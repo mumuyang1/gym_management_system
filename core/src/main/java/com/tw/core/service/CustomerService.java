@@ -28,4 +28,8 @@ public class CustomerService {
 
         customerDao.addCoachForCustomer(coachId,customerId);
     }
+
+    public void deleteCustomer(int id) {
+        customerDao.deleteCustomer(id);
+    }
 }

@@ -109,20 +109,12 @@ public class CoursesController {
     public ModelAndView getUserById(@PathVariable int id, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
 
         ModelAndView modelAndView = new ModelAndView();
-//        String user = (String) session.getAttribute("user");
 
-//        if (user == "login") {
         modelAndView.setViewName("updateSchedule");
         modelAndView.addObject("schedule", scheduleService.getScheduleById(id));
         modelAndView.addObject("coachList", employeeService.getCoaches());
 
         return modelAndView;
-//        } else {
-//            CookieUtil.addCurrentURLToCookies(request, response);
-//
-//            modelAndView.setViewName("login");
-//            return modelAndView;
-//        }
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)

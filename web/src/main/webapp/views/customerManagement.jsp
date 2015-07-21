@@ -6,6 +6,10 @@
 <html>
 <head>
     <title></title>
+    <spring:url value="/lib/js/customer.js" var="customerJs"/>
+    <script src="${customerJs}"></script>
+    <spring:url value="/lib/js/jquery-1.11.1.min.js" var="jquery"/>
+    <script src="${jquery}"></script>
 </head>
 <body>
 <div class="container">
@@ -44,10 +48,10 @@
             <td>更新</td>
         </tr>
         <c:forEach var="customer" items="${customerList}">
-            <tr align="center">'
+            <tr align="center">
                 <td><c:out value="${customer.name}"/></td>
                 <td><c:out value="${customer.employee.name}"/></td>
-                <td><a href="javascript:;" onclick="deleteUser(<c:out value="${user.id}"/>);">删除</a></td>
+                <td><a href="javascript:;" onclick="deleteCustomer(<c:out value="${customer.id}"/>);">删除</a></td>
                 <td>
                     <button type="button" align="center"
                             onclick="location = '/web/users/<c:out value="${user.id}"/>'">更新用户信息
