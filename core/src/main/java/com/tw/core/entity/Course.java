@@ -15,6 +15,7 @@ public class Course {
     private String name;
     private Employee employee;
     private Set<Schedule>schedules = new HashSet<Schedule>();
+    private Set<Customer> customers  = new HashSet();
 
     public Course() {
     }
@@ -68,5 +69,14 @@ public class Course {
     public void setSchedules(Set<Schedule> schedules)
     {
         this.schedules = schedules;
+    }
+
+    @ManyToMany(mappedBy = "courses")
+    public Set<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(Set<Customer> customers) {
+        this.customers = customers;
     }
 }

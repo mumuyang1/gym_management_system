@@ -18,17 +18,18 @@ CREATE TABLE courses(
   coach_id INT NOT NULL,
   FOREIGN KEY(coach_id) REFERENCES employees(id));
 
+CREATE TABLE customers(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(20) NOT NULL ,
+  coach_id INT);
+
 CREATE TABLE schedules(
   id INT AUTO_INCREMENT PRIMARY KEY,
   date DATE NOT NULL ,
   course_id INT NOT NULL ,
-  FOREIGN KEY (course_id) REFERENCES courses(id));
-
-CREATE TABLE customers(
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(20) NOT NULL ,
-  gender VARCHAR (20) NOT NULL ,
-  coach INT NOT NULL);
+  customer_id INT ,
+  FOREIGN KEY (course_id) REFERENCES courses(id),
+  FOREIGN KEY (customer_id) REFERENCES customers(id));
 
 CREATE TABLE customers_courses(
   id INT AUTO_INCREMENT PRIMARY KEY,

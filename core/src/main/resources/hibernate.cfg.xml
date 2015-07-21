@@ -23,5 +23,6 @@
         <mapping resource="employee.hbm.xml"/>
         <mapping class="com.tw.core.entity.Course"/>
         <mapping class="com.tw.core.entity.Schedule"/>
+        <mapping class="com.tw.core.entity.Customer"/>
     </session-factory>
 </hibernate-configuration>

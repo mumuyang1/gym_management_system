@@ -1,7 +1,6 @@
 package com.tw.core.dao.hibernateDao;
 
 import com.tw.core.entity.Course;
-import com.tw.core.entity.Schedule;
 import com.tw.core.utils.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -23,6 +22,15 @@ public class CourseDao {
         session.save(course);
         session.getTransaction().commit();
     }
+
+//    public void updateCustomerCourse(){
+//
+//        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+//        session.beginTransaction();
+//
+//        session.save(course);
+//
+//    }
 
     public List<Course> getCoursesByCoachId(int coachId){
 

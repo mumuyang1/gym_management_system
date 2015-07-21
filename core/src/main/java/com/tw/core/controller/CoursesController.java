@@ -1,9 +1,11 @@
 package com.tw.core.controller;
 
 import com.tw.core.entity.Course;
+import com.tw.core.entity.Customer;
 import com.tw.core.entity.Employee;
 import com.tw.core.entity.Schedule;
 import com.tw.core.service.CourseService;
+import com.tw.core.service.CustomerService;
 import com.tw.core.service.EmployeeService;
 import com.tw.core.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,8 @@ public class CoursesController {
     private CourseService courseService;
     @Autowired
     private EmployeeService employeeService;
+    @Autowired
+    private CustomerService customerService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ModelAndView getCoursesPage(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
@@ -37,12 +41,9 @@ public class CoursesController {
 //        if (user == "login") {
         modelAndView.setViewName("coursesManagement");
         modelAndView.addObject("scheduleList", scheduleService.getSchedules());
-//            System.out.println("=========================");
-//            System.out.println(scheduleService.getSchedules().get(0).getDate());
-//            System.out.println(scheduleService.getSchedules().get(0).getCourse().getName());
-//            System.out.println(scheduleService.getSchedules().get(0).getCourse().getEmployee().getName());
-
+//        System.out.println(scheduleService.getSchedules().get(3).getCustomer().getName()+"=============================");
         modelAndView.addObject("coachList", employeeService.getCoaches());
+        modelAndView.addObject("customerList",customerService.getCustomers());
 
         return modelAndView;
 //        } else {
@@ -55,11 +56,11 @@ public class CoursesController {
     @RequestMapping(value = "/creation", method = RequestMethod.POST)
     public ModelAndView insertCourse(@RequestParam String name, String date, String coachId, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
 
-        Employee employee = new Employee(Integer.parseInt(coachId));
-        Course course = new Course(employee, name);
-        Schedule schedule = new Schedule(course, date);
-
         if (scheduleService.isTheDateAvailable(Integer.parseInt(coachId), date)) {
+
+            Employee employee = new Employee(Integer.parseInt(coachId));
+            Course course = new Course(employee, name);
+            Schedule schedule = new Schedule(course, date);
 
             if (!courseService.isCourseExist(name)) {
                 courseService.insertCourse(course);
@@ -68,6 +69,30 @@ public class CoursesController {
             } else {
                 scheduleService.insertSchedule(new Schedule(new Course(courseService.getCourseIdByName(name)), date));
             }
+            return new ModelAndView("redirect:/courses");
+        } else {
+            return new ModelAndView("dateNotAvailableError");
+        }
+    }
+
+    @RequestMapping(value = "/creation/private", method = RequestMethod.POST)
+    public ModelAndView insertPrivateCourse(@RequestParam String date, String coachId,String customerId, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+
+        if (scheduleService.isTheDateAvailable(Integer.parseInt(coachId), date)) {
+
+            if (!courseService.isCourseExist("私教课")) {
+                Employee employee = new Employee(Integer.parseInt(coachId));
+                Course course = new Course(employee, "私教课");
+                Schedule schedule = new Schedule(course, date,new Customer(Integer.parseInt(customerId)));
+
+                courseService.insertCourse(course);
+                scheduleService.insertSchedule(schedule);
+
+            } else {
+                scheduleService.insertSchedule(new Schedule(new Course(courseService.getCourseIdByName("私教课")), date,new Customer(Integer.parseInt(customerId))));
+            }
+            customerService.addCoachForCustomer(Integer.parseInt(coachId), Integer.parseInt(customerId));
+
             return new ModelAndView("redirect:/courses");
         } else {
             return new ModelAndView("dateNotAvailableError");

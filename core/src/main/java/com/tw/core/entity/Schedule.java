@@ -13,8 +13,13 @@ public class Schedule {
     private int id;
     private Course course;
     private String date;
+    private Customer customer;
 
     public Schedule() {
+    }
+
+    public Schedule(int id) {
+        this.id = id;
     }
 
     public Schedule(Course course, String date) {
@@ -26,6 +31,12 @@ public class Schedule {
         this.id = id;
         this.course = course;
         this.date = date;
+    }
+
+    public Schedule(Course course, String date, Customer customer) {
+        this.course = course;
+        this.date = date;
+        this.customer = customer;
     }
 
     @Id
@@ -55,5 +66,15 @@ public class Schedule {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "customer_id")
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }
