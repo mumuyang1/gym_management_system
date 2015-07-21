@@ -20,8 +20,8 @@ import javax.servlet.http.HttpSession;
  * Created by yzli on 7/19/15.
  */
 @RestController
-@RequestMapping(value = "/courses")
-public class CoursesController {
+@RequestMapping(value = "/schedules")
+public class ScheduleController {
 
     @Autowired
     private ScheduleService scheduleService;
@@ -33,24 +33,16 @@ public class CoursesController {
     private CustomerService customerService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ModelAndView getCoursesPage(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView getCoursesPage(HttpServletRequest request, HttpServletResponse response) {
 
         ModelAndView modelAndView = new ModelAndView();
-        String user = (String) session.getAttribute("user");
 
-//        if (user == "login") {
         modelAndView.setViewName("schedulesManagement");
         modelAndView.addObject("scheduleList", scheduleService.getSchedules());
-//        System.out.println(scheduleService.getSchedules().get(3).getCustomer().getName()+"=============================");
         modelAndView.addObject("coachList", employeeService.getCoaches());
         modelAndView.addObject("customerList",customerService.getCustomers());
 
         return modelAndView;
-//        } else {
-//            modelAndView.setViewName("login");
-//            CookieUtil.addCurrentURLToCookies(request, response);
-//            return modelAndView;
-//        }
     }
 
     @RequestMapping(value = "/creation", method = RequestMethod.POST)
@@ -69,7 +61,7 @@ public class CoursesController {
             } else {
                 scheduleService.insertSchedule(new Schedule(new Course(courseService.getCourseIdByName(name)), date));
             }
-            return new ModelAndView("redirect:/courses");
+            return new ModelAndView("redirect:/schedules");
         } else {
             return new ModelAndView("dateNotAvailableError");
         }
@@ -93,7 +85,7 @@ public class CoursesController {
             }
             customerService.addCoachForCustomer(Integer.parseInt(coachId), Integer.parseInt(customerId));
 
-            return new ModelAndView("redirect:/courses");
+            return new ModelAndView("redirect:/schedules");
         } else {
             return new ModelAndView("dateNotAvailableError");
         }
@@ -128,7 +120,6 @@ public class CoursesController {
             scheduleService.updateSchedule(schedule);
             return null;
         } else {
-            System.out.println("+++++++++++++++++");
             return "timeNotAvailable";
         }
     }

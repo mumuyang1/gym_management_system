@@ -13,7 +13,7 @@
 <body>
 <div align="center" id="mDiv">
   该时间已被占用，请重新选时间！
-  <button type="button" style="border-color: pink" onclick="location = '/web/courses'">重新添加课程</button>
+  <button type="button" style="border-color: pink" onclick="location = '/web/schedules'">重新添加课程</button>
 </div>
 </body>
 </html>

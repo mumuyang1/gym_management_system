@@ -29,11 +29,6 @@
 
   课程名: <input style="border-color: pink" type="text" name="courseName" readonly="readonly" value="${schedule.course.name}">
   教练   : <input style="border-color: pink" type="text" name="courseName" readonly="readonly" value="${schedule.course.employee.name}">
-  <%--<select name="coachId">--%>
-    <%--<c:forEach  var="coach" items="${coachList}">--%>
-      <%--<option <c:if test="${coach.id == schedule.course.employee.id}">selected </c:if> value="<c:out value="${coach.id}"/>"><c:out value="${coach.name}"/></option>--%>
-    <%--</c:forEach>--%>
-  <%--</select>--%>
   时间: <input style="border-color: pink" type="date"  name="date" value="${schedule.date}"/>
   <input style="border-color: wheat"  type="submit" value="确定" />
 </form>

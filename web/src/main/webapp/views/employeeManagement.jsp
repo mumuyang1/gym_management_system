@@ -7,7 +7,7 @@
 <html>
 <head>
     <title></title>
-    <spring:url value="/lib/js/course.js" var="courseJs"/>
+    <spring:url value="/lib/js/schedule.js" var="courseJs"/>
     <script src="${courseJs}"></script>
     <spring:url value="/lib/js/jquery-1.11.1.min.js" var="jquery"/>
     <script src="${jquery}"></script>
@@ -30,7 +30,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">员工管理</a></li>
-                    <li><a href="/web/courses">课程管理</a></li>
+                    <li><a href="/web/schedules">课表管理</a></li>
                     <li><a href="/web/customers">顾客管理</a></li>
                 </ul>
             </div>

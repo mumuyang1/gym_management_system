@@ -28,7 +28,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="/web/employees">员工管理</a></li>
-                    <li><a href="/web/courses">课程管理</a></li>
+                    <li><a href="/web/schedules">课表管理</a></li>
                     <li class="active"><a href="#">顾客管理</a></li>
                 </ul>
             </div>

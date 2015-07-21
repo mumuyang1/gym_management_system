@@ -6,8 +6,8 @@
 <html>
 <head>
     <title></title>
-    <spring:url value="/lib/js/course.js" var="courseJs" />
-    <script src="${courseJs}"></script>
+    <spring:url value="/lib/js/schedule.js" var="scheduleJs" />
+    <script src="${scheduleJs}"></script>
     <spring:url value="/lib/js/jquery-1.11.1.min.js" var="jquery"/>
         <script src="${jquery}"></script>
 </head>
@@ -32,7 +32,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li><a href="/web/employees">员工管理</a></li>
-                    <li class="active"><a href="#">课程管理</a></li>
+                    <li class="active"><a href="#">课表管理</a></li>
                     <li><a href="/web/customers">顾客管理</a></li>
                 </ul>
             </div>
@@ -40,7 +40,7 @@
     </nav>
 
     <div>添加公共课</div></br>
-    <form  action="/web/courses/creation" method="post">
+    <form  action="/web/schedules/creation" method="post">
         课程名: <input style="border-color: pink" type="text" name="name"/>
         教 练: <select  name="coachId">
         <c:forEach  var="coach" items="${coachList}">
@@ -52,7 +52,7 @@
     </form>
 
     <div >添加私教课</div></br>
-    <form  action="/web/courses/creation/private" method="post">
+    <form  action="/web/schedules/creation/private" method="post">
         课程名: <input style="border-color: pink" type="text" value="私教课" readonly/>
         教 练: <select  name="coachId">
         <c:forEach  var="coach" items="${coachList}">
@@ -89,7 +89,7 @@
                 <td><a href="javascript:;" onclick="deleteASchedule(<c:out value="${schedule.id}"/>);">删除</a></td>
                 <td>
                     <button type="button" style="border-color: white" align="center"
-                            onclick="location = '/web/courses/<c:out value="${schedule.id}"/>'">更新
+                            onclick="location = '/web/schedules/<c:out value="${schedule.id}"/>'">更新
                     </button>
                 </td>
             </tr>

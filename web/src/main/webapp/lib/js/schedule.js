@@ -1,6 +1,6 @@
 function deleteASchedule(id){
     $.ajax({
-        url: '/web/courses/' + id,
+        url: '/web/schedules/' + id,
         type: 'DELETE',
         dataType: 'text',
         success: function () {
