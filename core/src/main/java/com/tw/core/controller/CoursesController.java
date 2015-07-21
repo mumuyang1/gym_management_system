@@ -39,7 +39,7 @@ public class CoursesController {
         String user = (String) session.getAttribute("user");
 
 //        if (user == "login") {
-        modelAndView.setViewName("coursesManagement");
+        modelAndView.setViewName("schedulesManagement");
         modelAndView.addObject("scheduleList", scheduleService.getSchedules());
 //        System.out.println(scheduleService.getSchedules().get(3).getCustomer().getName()+"=============================");
         modelAndView.addObject("coachList", employeeService.getCoaches());
