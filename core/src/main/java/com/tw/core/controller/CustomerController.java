@@ -8,7 +8,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  * Created by yzli on 7/21/15.
@@ -45,6 +44,24 @@ public class CustomerController {
 
         customerService.deleteCustomer(id);
 
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public ModelAndView showUpdate(@PathVariable int id) {
+
+        ModelAndView modelAndView = new ModelAndView();
+
+        modelAndView.setViewName("customerManagement");
+        modelAndView.addObject("customerList", customerService.getCustomers());
+        modelAndView.addObject("customerToBeUpdated", customerService.getCustomer(id));
+
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public void updateCustomer(@PathVariable int id,@RequestParam String name) {
+
+       customerService.updateCustomer(new Customer(id,name));
     }
 
 }

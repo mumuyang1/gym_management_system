@@ -35,9 +35,17 @@
         </div>
     </nav>
     <div align="center">
+        <c:if test="${customerToBeUpdated != null}">
+            <form id="updateCustomerForm">
+                名字: <input style="border-color: green" type="text" value="${customerToBeUpdated.name}" name="name"/>
+                <input id="idInput" type="text" value="${customerToBeUpdated.id}" name="id" hidden/>
+                <input align="center" style="border-color: green" type="submit"
+                       onclick="updateCustomer(<c:out value="${customerToBeUpdated.id}"/>);" value="更新"/>
+            </form>
+        </c:if>
         <form action="/web/customers/creation" method="post">
             名字: <input style="border-color: pink" type="text" name="name"/>
-            <input align="center" style="border-color: wheat" type="submit" value="确定添加"/>
+            <input align="center" style="border-color: wheat" type="submit" value="添加"/>
         </form>
     </div>
     <table align="center" border="2" bgcolor="#ffc0cb">
@@ -54,7 +62,7 @@
                 <td><a href="javascript:;" onclick="deleteCustomer(<c:out value="${customer.id}"/>);">删除</a></td>
                 <td>
                     <button type="button" align="center"
-                            onclick="location = '/web/users/<c:out value="${user.id}"/>'">更新用户信息
+                            onclick="location='/web/customers/<c:out value="${customer.id}"/>'">更新
                     </button>
                 </td>
             </tr>

@@ -32,4 +32,12 @@ public class CustomerService {
     public void deleteCustomer(int id) {
         customerDao.deleteCustomer(id);
     }
+
+    public Customer getCustomer(int id){
+        return customerDao.getCustomer(id);
+    }
+
+    public void updateCustomer(Customer customer){
+        customerDao.updateCustomer(customer);
+    }
 }

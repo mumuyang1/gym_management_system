@@ -27,8 +27,6 @@
                 </button>
                 <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>健身房管理系统</a>
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">员工管理</a></li>
@@ -36,9 +34,7 @@
                     <li><a href="/web/customers">顾客管理</a></li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container-fluid -->
     </nav>
     <table align="center" border="2" bgcolor="#ffc0cb">
         <tr align="center">
@@ -51,7 +47,7 @@
             <td>删除</td>
         </tr>
         <c:forEach var="user" items="${userList}">
-            <tr align="center">'
+            <tr align="center">
                 <td><c:out value="${user.userName}"/></td>
                 <td><c:out value="${user.password}"/></td>
                 <td><c:out value="${user.employee.name}"/></td>
@@ -67,7 +63,6 @@
         </c:forEach>
     </table>
     </br>
-    <
 </div>
 </body>
 </html>

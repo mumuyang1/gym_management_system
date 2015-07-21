@@ -26,6 +26,15 @@ public class CustomerDao {
         session.getTransaction().commit();
     }
 
+    public void updateCustomer(Customer customer){
+
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        session.update(customer);
+        session.getTransaction().commit();
+    }
+
     public void deleteCustomer(int id){
 
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -55,6 +64,20 @@ public class CustomerDao {
         return customerList;
     }
 
+    public Customer getCustomer(int id){
+
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        Query query = session.createQuery("from Customer where id = :id");
+        query.setParameter("id",id);
+         Customer customer =  (Customer)query.list().get(0);
+
+        session.getTransaction().commit();
+
+        return customer;
+    }
+
     public void addCoachForCustomer(int coachId,int customerId){
 
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -70,6 +93,6 @@ public class CustomerDao {
 
     public static void main(String[] args){
 
-        new CustomerDao().insertCustomer(new Customer("顾客小明"));
+        System.out.println(new CustomerDao().getCustomer(1).getName());;
     }
 }
