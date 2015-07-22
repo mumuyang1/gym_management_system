@@ -16,7 +16,7 @@ CREATE TABLE courses(
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR (50) NOT NULL ,
   coach_id INT NOT NULL,
-  FOREIGN KEY(coach_id) REFERENCES employees(id) ON DELETE CASCADE );
+  FOREIGN KEY(coach_id) REFERENCES employees(id));
 
 CREATE TABLE customers(
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -28,8 +28,8 @@ CREATE TABLE schedules(
   date DATE NOT NULL ,
   course_id INT NOT NULL ,
   customer_id INT ,
-  FOREIGN KEY (course_id) REFERENCES courses(id),
-  FOREIGN KEY (customer_id) REFERENCES customers(id));
+  FOREIGN KEY (course_id) REFERENCES courses(id) ON DELETE CASCADE,
+  FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE CASCADE);
 
 CREATE TABLE customers_courses(
   id INT AUTO_INCREMENT PRIMARY KEY,
