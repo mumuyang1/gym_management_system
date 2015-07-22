@@ -21,7 +21,7 @@
 </head>
 <body>
 <div class="container">
-<jsp:include page="index.jsp"/>
+<jsp:include page="navigator.jsp"/>
 <h3>更新时间安排信息</h3>
 
 <form id="updateScheduleInfoForm">

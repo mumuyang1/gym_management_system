@@ -15,7 +15,7 @@
 
 <div class="container">
 
-    <jsp:include page="index.jsp"/>
+    <jsp:include page="navigator.jsp"/>
 
     <div>添加公共课</div>
     </br>

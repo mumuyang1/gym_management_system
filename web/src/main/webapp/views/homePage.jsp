@@ -9,7 +9,7 @@
 <body>
 <div class="container">
 
-    <jsp:include page="index.jsp"/>
+    <jsp:include page="navigator.jsp"/>
     <div class="panel panel-danger">
         <div class="panel-heading"><h1>健身房管理系统欢迎您！</h1></div>
         <div class="panel-body">

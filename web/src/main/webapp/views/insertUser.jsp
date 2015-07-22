@@ -15,7 +15,7 @@
     <title></title>
 </head>
 <body>
-<jsp:include page="index.jsp"/>
+<jsp:include page="navigator.jsp"/>
 <h3>增加用户</h3>
 
 <form action="/web/users/creation" method="post">

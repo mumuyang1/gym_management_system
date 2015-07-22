@@ -1,0 +1,33 @@
+.navigator {
+    border-radius: 6px;
+    background-color: #f6f6f6;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.navigator ul {
+    list-style-type: armenian;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navigator li {
+    float: left;
+}
+
+.navigator a:link, a:visited {
+    display: block;
+    width: 100px;
+    padding: 4px;
+    text-decoration: none;
+    height: 50px;
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    color: #A9A9A9;
+}
+
+.navigator a:hover, a:active {
+    background-color: #C0C0C0;
+}

@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="container">
-<jsp:include page="index.jsp"/>
+<jsp:include page="navigator.jsp"/>
 
 <h3>更新用户信息</h3>
 

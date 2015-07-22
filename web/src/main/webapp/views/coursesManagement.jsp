@@ -1,5 +1,5 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<spring:url value="/lib/css/bootstrap.min.css" var="bootstrapCss"/>
+<%--<spring:url value="/lib/css/bootstrap.min.css" var="bootstrapCss"/>--%>
 <link href="${bootstrapCss}" rel="stylesheet"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="container">
-    <jsp:include page="/views/index.jsp"/>
+    <jsp:include page="/views/navigator.jsp"/>
     <div align="center">
         <c:if test="${courseToBeUpdated != null}">
             <form id="updateCourseForm">
