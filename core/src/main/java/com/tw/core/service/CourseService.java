@@ -44,4 +44,8 @@ public class CourseService {
     public void updateCourse(Course course){
         courseDao.updateCourse(course);
     }
+
+    public void deleteCourse(int id){
+        courseDao.deleteCourse(id);
+    }
 }

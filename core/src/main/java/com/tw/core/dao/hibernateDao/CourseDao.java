@@ -108,7 +108,6 @@ public class CourseDao {
 
     public void updateCourse(Course course){
 
-        System.out.println("更新更新更新更新更新更新更新更新更新更新更新更新更新更新更新更新更新");
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
 
@@ -117,6 +116,15 @@ public class CourseDao {
         query.setParameter("name", course.getName());
         query.executeUpdate();
 
+        session.getTransaction().commit();
+    }
+
+    public void deleteCourse(int id){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        Course course = (Course) session.load(Course.class, id);
+        session.delete(course);
         session.getTransaction().commit();
     }
 }
