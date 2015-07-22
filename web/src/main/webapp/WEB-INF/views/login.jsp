@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-    <jsp:include page="/views/navigator.jsp"/>
+    <jsp:include page="navigator.jsp"/>
 
     <h3 align="center">登录</h3>
 

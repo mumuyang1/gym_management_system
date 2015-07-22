@@ -11,11 +11,13 @@
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/views/"/>
+        <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
     <mvc:resources mapping="/lib/**" location="/lib/" />
+    <mvc:resources mapping="/style/**" location="/style/" />
+
     <mvc:annotation-driven />
 
 </beans>

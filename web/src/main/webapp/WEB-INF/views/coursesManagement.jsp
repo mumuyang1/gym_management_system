@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="container">
-    <jsp:include page="/views/navigator.jsp"/>
+    <jsp:include page="navigator.jsp"/>
     <div align="center">
         <c:if test="${courseToBeUpdated != null}">
             <form id="updateCourseForm">
