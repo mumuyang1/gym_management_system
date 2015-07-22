@@ -95,8 +95,7 @@ public class UserController {
 
         Employee employee = new Employee(name,email,gender,position);
 
-        int employeeId = userService.insertEmployee(employee);
-        User user = new User(userName,password,new Employee(employeeId));
+        User user = new User(userName,password,employee);
 
         userService.insertUser(user);
 

@@ -34,15 +34,6 @@ public class UserDao {
         session.save(user);
         session.getTransaction().commit();
     }
-    public int insertEmployee(Employee employee) {
-
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        int employeeId = (Integer)session.save(employee);
-        session.getTransaction().commit();
-
-        return employeeId;
-    }
 
     public void deleteUserById(int id) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -71,8 +62,6 @@ public class UserDao {
         user.setPassword(MD5Util.md5(user.getPassword()));
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-
-        System.out.println("++++++++++????????????????++++++++++++++");
 
         session.update(user);
 
@@ -107,8 +96,4 @@ public class UserDao {
 
         return count != 0;
     }
-
-
-
-
 }
