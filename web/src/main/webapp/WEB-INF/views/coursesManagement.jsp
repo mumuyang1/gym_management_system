@@ -8,7 +8,7 @@
     <title></title>
     <spring:url value="/lib/js/jquery-1.11.1.min.js" var="jquery"/>
     <script src="${jquery}"></script>
-    <spring:url value="/lib/js/course.js" var="courseJs"/>
+    <spring:url value="/js/course.js" var="courseJs"/>
     <script src="${courseJs}"></script>
 </head>
 <body>

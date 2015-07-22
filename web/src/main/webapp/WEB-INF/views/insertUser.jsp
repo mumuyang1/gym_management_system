@@ -1,6 +1,5 @@
 <%@ taglib prefix="c"
            uri="http://java.sun.com/jsp/jstl/core" %>
-<s]>
 <%--
   Created by IntelliJ IDEA.
   User: yzli

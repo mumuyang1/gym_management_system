@@ -6,7 +6,7 @@
 <html>
 <head>
     <title></title>
-    <spring:url value="/lib/js/schedule.js" var="scheduleJs"/>
+    <spring:url value="/js/schedule.js" var="scheduleJs"/>
     <script src="${scheduleJs}"></script>
     <spring:url value="/lib/js/jquery-1.11.1.min.js" var="jquery"/>
     <script src="${jquery}"></script>

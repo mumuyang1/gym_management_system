@@ -8,36 +8,36 @@
     <title></title>
     <spring:url value="/lib/js/jquery-1.11.1.min.js" var="jquery"/>
     <script src="${jquery}"></script>
-    <spring:url value="/lib/js/user.js" var="userJs"/>
+    <spring:url value="/js/user.js" var="userJs"/>
     <script src="${userJs}"></script>
 </head>
 <body>
 <div class="container">
     <jsp:include page="navigator.jsp"/>
     <div id="updateForm" align="center" hidden>
-            <form id="updateUserInfoForm">
-                <input type="text" value="${userToBeUpdated.employee.id}" name="employeeId" hidden />
-                <input id="idInput" type="text" value="${userToBeUpdated.id}" name="id" hidden />
+        <form id="updateUserInfoForm">
+            <input type="text" name="employeeId" hidden/>
+            <input id="idInput" type="text" name="id" hidden/>
 
-                登录名: <input style="border-color: pink" type="text" value="${userToBeUpdated.userName}"
-                        name="userName"/>
-                密码: <input style="border-color: pink" type="password" value="${userToBeUpdated.password}"
-                           name="password"/>
-                姓名: <input style="border-color: pink" type="text" value="${userToBeUpdated.employee.name}"
-                           name="name"/>
-                性别: <input style="border-color: pink" type="text" value="${userToBeUpdated.employee.gender}"
-                           name="gender"/>
-                邮箱: <input style="border-color: pink" type="email" value="${userToBeUpdated.employee.email}"
-                           name="email"/>
-                职位: <select name="position">
-                <option <c:if test="${userToBeUpdated.employee.position == 'COACH'}">selected</c:if> value="COACH">COACH</option>
-                <option <c:if test="${userToBeUpdated.employee.position == 'HR'}">selected</c:if> value="HR">HR</option>
-                <option <c:if test="${userToBeUpdated.employee.position == 'OPs'}">selected</c:if> value="OPs">OPs</option>
-            </select>
+            登录名: <input type="text" name="userName"/>
+            密码: <input type="password" name="password"/>
+            姓名: <input type="text" name="name"/>
+            性别: <input type="text" name="gender"/>
+            邮箱: <input type="email" name="email"/>
+            职位: <select name="position">
+            <option
+                    <c:if test="${userToBeUpdated.employee.position == 'COACH'}">selected</c:if> value="COACH">COACH
+            </option>
+            <option
+                    <c:if test="${userToBeUpdated.employee.position == 'HR'}">selected</c:if> value="HR">HR
+            </option>
+            <option
+                    <c:if test="${userToBeUpdated.employee.position == 'OPs'}">selected</c:if> value="OPs">OPs
+            </option>
+        </select>
 
-                <input align="center" style="border-color: green" type="submit"
-                       onclick="updateUser();" value="更新"/>
-            </form>
+            <input align="center" type="submit" onclick="updateUser();" value="更新"/>
+        </form>
     </div>
     <table id="userInfoTable">
         <tr id="userInfoTableTheFirstLine">
@@ -59,10 +59,12 @@
                 <td><c:out value="${user.employee.gender}"/></td>
                 <td><c:out value="${user.employee.email}"/></td>
                 <td><c:out value="${user.employee.position}"/></td>
-                <td><a class="delete button" href="javascript:" onclick="deleteUser(<c:out value="${user.id}"/>);">删除</a></td>
+                <td><a class="delete button" href="javascript:"
+                       onclick="deleteUser(<c:out value="${user.id}"/>);">删除</a></td>
                 <td>
                     <a class="update button" href="javascript:" data-user-name="<c:out value="${user.userName}"/>"
-                       data-password="<c:out value="${user.password}"/>" data-employee-name="<c:out value="${user.employee.name}"/>"
+                       data-password="<c:out value="${user.password}"/>"
+                       data-employee-name="<c:out value="${user.employee.name}"/>"
                        data-employee-email="<c:out value="${user.employee.email}"/>"
                        data-employee-gender="<c:out value="${user.employee.gender}"/>"
                        data-employee-position="<c:out value="${user.employee.position}"/>"

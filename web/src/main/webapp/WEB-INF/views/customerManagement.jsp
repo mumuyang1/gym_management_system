@@ -6,7 +6,7 @@
 <html>
 <head>
     <title></title>
-    <spring:url value="/lib/js/customer.js" var="customerJs"/>
+    <spring:url value="/js/customer.js" var="customerJs"/>
     <script src="${customerJs}"></script>
     <spring:url value="/lib/js/jquery-1.11.1.min.js" var="jquery"/>
     <script src="${jquery}"></script>

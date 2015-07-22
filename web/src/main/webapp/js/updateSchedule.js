@@ -11,7 +11,7 @@ $(document).ready(function() {
                 if(data === "timeNotAvailable"){
                     window.alert("时间冲突，请重新选时间");
                 }
-                window.location = "http://localhost:8080/web/schedules/";
+                window.location = "../";
             }
         });
         ev.preventDefault();
