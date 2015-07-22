@@ -46,22 +46,22 @@ public class CustomerController {
 
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ModelAndView showUpdate(@PathVariable int id) {
-
-        ModelAndView modelAndView = new ModelAndView();
-
-        modelAndView.setViewName("customerManagement");
-        modelAndView.addObject("customerList", customerService.getCustomers());
-        modelAndView.addObject("customerToBeUpdated", customerService.getCustomer(id));
-
-        return modelAndView;
-    }
+//    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+//    public ModelAndView showUpdate(@PathVariable int id) {
+//
+//        ModelAndView modelAndView = new ModelAndView();
+//
+//        modelAndView.setViewName("customerManagement");
+//        modelAndView.addObject("customerList", customerService.getCustomers());
+//        modelAndView.addObject("customerToBeUpdated", customerService.getCustomer(id));
+//
+//        return modelAndView;
+//    }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public void updateCustomer(@PathVariable int id,@RequestParam String name) {
+    public void updateCustomer(@PathVariable int id,@RequestParam String customerName) {
 
-       customerService.updateCustomer(new Customer(id,name));
+       customerService.updateCustomer(new Customer(id,customerName));
     }
 
 }

@@ -10,9 +10,11 @@ function deleteCustomer(id) {
 }
 
 
-function updateCustomer(id) {
+function updateCustomer() {
 
     var form = $('#updateCustomerForm');
+    var id = $('#idInput').val();
+
     form.submit(function (ev) {
         $.ajax({
             type: "PUT",
@@ -25,3 +27,16 @@ function updateCustomer(id) {
         ev.preventDefault();
     });
 }
+
+$(function () {
+
+    $('.update').on('click', function () {
+        var id = $('.update').data('id');
+        var name = $('.update').data('name');
+
+        $('input[name=customerId]').val(id);
+        $('input[name=customerName]').val(name);
+
+        $('#updateCustomerForm').show();
+    });
+});

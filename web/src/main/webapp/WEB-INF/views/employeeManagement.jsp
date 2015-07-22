@@ -14,7 +14,7 @@
 <body>
 <div class="container">
     <jsp:include page="navigator.jsp"/>
-    <div id="updateForm" align="center" hidden>
+    <div id="updateForm" hidden>
         <form id="updateUserInfoForm">
             <input type="text" name="employeeId" hidden/>
             <input id="idInput" type="text" name="id" hidden/>
