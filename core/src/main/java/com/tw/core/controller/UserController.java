@@ -109,22 +109,11 @@ public class UserController {
         return new ModelAndView("homePage");
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ModelAndView showUpdate(@PathVariable int id) {
-
-        ModelAndView modelAndView = new ModelAndView();
-
-        modelAndView.setViewName("employeeManagement");
-        modelAndView.addObject("userList", userService.getUsers());
-        modelAndView.addObject("userToBeUpdated", userService.getUserBy(id));
-
-        return modelAndView;
-    }
-
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public void updateUser(@PathVariable int id,@RequestParam String userName, String password,String employeeId,
                                                               String name, String gender,
                                                               String email, String position) {
+
 
         userService.updateUser(new User(id,userName,password,new Employee(Integer.parseInt(employeeId),name,email,gender,position)));
     }
