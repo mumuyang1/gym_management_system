@@ -1,47 +1,36 @@
-<%@ taglib uri="http://www.springframework.org/tags"  prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
-
-  <spring:url value="/lib/js/jquery-1.11.1.min.js" var="jQuery" />
-  <script src="${jQuery}"></script>
-
-  <spring:url value="/lib/js/user.js" var="user" />
-  <script src="${user}"></script>
-
     <title></title>
 </head>
 <body>
 
-<button type="button" style="border-color: pink" align="center" onclick="location = '/web/courses>'">课程管理</button>
-<button type="button" style="border-color: pink" align="center" onclick="location = '/web/users>'">员工管理</button>
-
-<%--<table align="center" border="2" bgcolor="#ffc0cb">--%>
-  <%--<tr align="center">--%>
-    <%--<td>姓名</td>--%>
-    <%--<td>性别</td>--%>
-    <%--<td>邮箱</td>--%>
-    <%--<td>年龄</td>--%>
-    <%--<td>删除</td>--%>
-    <%--<td>更新用户信息</td>--%>
-  <%--</tr>--%>
-  <%--<c:forEach var = "user" items="${userList}" >--%>
-  <%--<tr align="center">'--%>
-
-    <%--<td><c:out value="${user.name}" /></td>--%>
-    <%--<td><c:out value="${user.gender}" /></td>--%>
-    <%--<td><c:out value="${user.mailbox}" /></td>--%>
-    <%--<td><c:out value="${user.age}" /></td>--%>
-    <%--<td><a href="javascript:;"onclick="deleteUser(<c:out value="${user.userId}" />);">删除</a></td>--%>
-    <%--<td>--%>
-      <%--<button type="button" style="border-color: white" align="center" onclick="location = '/web/users/<c:out value="${user.userId}"/>'">更新用户信息</button>--%>
-               <%--</td>--%>
-   <%--</tr>--%>
-  <%--</c:forEach>--%>
-<%--</table></br>--%>
-
-<%--<div align="center"><button type="button" style="border-color: pink" onclick="location = '/web/users/creation'">增加用户</button></div>--%>
-
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"
+                                                   aria-hidden="true"></span>健身房管理系统</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="/web/employees">员工管理</a></li>
+                <li class="active"><a href="#">课程管理</a></li>
+                <li><a href="/web/schedules">课表管理</a></li>
+                <li><a href="/web/customers">顾客管理</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<%--<button type="button" style="border-color: pink" align="center" onclick="location = '/web/courses>'">课程管理</button>--%>
+<%--<button type="button" style="border-color: pink" align="center" onclick="location = '/web/users>'">员工管理</button>--%>
 </body>
 </html>
