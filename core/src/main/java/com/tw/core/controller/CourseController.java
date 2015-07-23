@@ -31,19 +31,6 @@ public class CourseController {
         return modelAndView;
     }
 
-//    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-//    public ModelAndView showUpdate(@PathVariable int id) {
-//
-//        ModelAndView modelAndView = new ModelAndView();
-//
-//        modelAndView.setViewName("coursesManagement");
-//        modelAndView.addObject("courseList", courseService.getCourses());
-//
-//        modelAndView.addObject("courseToBeUpdated", courseService.getCourse(id));
-//
-//        return modelAndView;
-//    }
-
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public void updateCustomer(@PathVariable int id,@RequestParam String name) {
 

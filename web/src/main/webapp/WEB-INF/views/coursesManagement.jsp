@@ -16,9 +16,9 @@
 <jsp:include page="navigator.jsp"/>
 <div id="updateCoursesForm">
     <form id="updateCourseForm" hidden>
-        课程: <input type="text" name="name"/>
+        课程: <input id="nameInput" type="text" name="name"/>
         <input id="idInput" type="text" name="id" hidden/>
-        <input type="submit"
+        <input class="submitInput" id="submitInput" type="submit"
                onclick="updateCourse();" value="更新"/>
     </form>
 </div>

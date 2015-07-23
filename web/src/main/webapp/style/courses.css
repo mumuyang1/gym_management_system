@@ -20,7 +20,6 @@
     text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
     color: #000000;
     font-size: 13px;
-    font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
     text-decoration: none;
     vertical-align: middle;
 }
@@ -54,7 +53,6 @@
     text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
     color: #000000;
     font-size: 13px;
-    font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
     text-decoration: none;
     vertical-align: middle;
 }
@@ -96,9 +94,46 @@
     height: 50px;
 }
 
-#updateCoursesForm {
-    margin-left: 40%;
-    margin-right: 40%;
-    margin-top: 50px;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
+#nameInput{
+    border-radius: 5px;
+    width: 300px;
+    height: 30px;
+}
+
+#updateCoursesForm{
+    margin-left: 38%;
+    margin-right: 30%;
+    margin-top:50px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.submitInput {
+    border-top: 1px solid #d47c1e;
+    background: #e8b26f;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f0c273), to(#e8b26f));
+    background: -webkit-linear-gradient(top, #f0c273, #e8b26f);
+    background: -moz-linear-gradient(top, #f0c273, #e8b26f);
+    background: -ms-linear-gradient(top, #f0c273, #e8b26f);
+    background: -o-linear-gradient(top, #f0c273, #e8b26f);
+    padding: 6.5px 13px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    color: #000000;
+    font-size: 13px;
+    text-decoration: none;
+    vertical-align: middle;
+}
+.submitInput:hover {
+    border-top-color: #d4641e;
+    background: #d4641e;
+    color: #cccccc;
+}
+.submitInput:active {
+    border-top-color: #5c1b26;
+    background: #5c1b26;
 }
