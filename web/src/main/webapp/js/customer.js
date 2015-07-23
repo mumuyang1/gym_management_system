@@ -31,8 +31,8 @@ function updateCustomer() {
 $(function () {
 
     $('.update').on('click', function () {
-        var id = $('.update').data('id');
-        var name = $('.update').data('name');
+        var id = $(this).data('id');
+        var name = $(this).data('name');
 
         $('input[name=customerId]').val(id);
         $('input[name=customerName]').val(name);

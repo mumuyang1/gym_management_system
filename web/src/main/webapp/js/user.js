@@ -33,14 +33,14 @@ function updateUser() {
 $(function () {
 
     $('.update').on('click', function () {
-        var id = $('.update').data('id');
-        var userName = $('.update').data('user-name');
-        var password = $('.update').data('password');
-        var employeeName = $('.update').data('employee-name');
-        var employeeEmail = $('.update').data('employee-email');
-        var employeePosition = $('.update').data('employee-position');
-        var employeeGender = $('.update').data('employee-gender');
-        var employeeId = $('.update').data('employee-id');
+        var id = $(this).data('id');
+        var userName = $(this).data('user-name');
+        var password = $(this).data('password');
+        var employeeName = $(this).data('employee-name');
+        var employeeEmail = $(this).data('employee-email');
+        var employeePosition = $(this).data('employee-position');
+        var employeeGender = $(this).data('employee-gender');
+        var employeeId = $(this).data('employee-id');
 
         $('input[name=id]').val(id);
         $('input[name=userName]').val(userName);

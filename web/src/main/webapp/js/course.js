@@ -28,8 +28,8 @@ function updateCourse() {
 $(function () {
 
     $('.courseTable').on('click', function () {
-        var id = $('.courseTable').data('course-id');
-        var name = $('.courseTable').data('course-name');
+        var id = $(this).data('course-id');
+        var name = $(this).data('course-name');
 
         $('input[name=id]').val(id);
         $('input[name=name]').val(name);
