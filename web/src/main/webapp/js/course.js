@@ -10,8 +10,9 @@ function deleteCourse(id) {
     })
 }
 
-function updateCourse(id) {
+function updateCourse() {
     var form = $('#updateCourseForm');
+    var id = $("#idInput").val();
     form.submit(function (ev) {
         $.ajax({
             type: "PUT",
@@ -24,4 +25,15 @@ function updateCourse(id) {
         ev.preventDefault();
     });
 }
+$(function () {
 
+    $('.courseTable').on('click', function () {
+        var id = $('.courseTable').data('course-id');
+        var name = $('.courseTable').data('course-name');
+
+        $('input[name=id]').val(id);
+        $('input[name=name]').val(name);
+
+        $('#updateCourseForm').show();
+    });
+});

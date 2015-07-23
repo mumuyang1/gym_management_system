@@ -3,6 +3,7 @@
 <link href="${bootstrapCss}" rel="stylesheet"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<link rel="stylesheet" href="/style/customer.css" type="text/css">
 <html>
 <head>
     <title></title>
@@ -38,9 +39,6 @@
                 <td><c:out value="${customer.employee.name}"/></td>
                 <td><a href="javascript:;" onclick="deleteCustomer(<c:out value="${customer.id}"/>);">删除</a></td>
                 <td>
-                        <%--<button type="button" align="center"--%>
-                        <%--onclick="location='/web/customers/<c:out value="${customer.id}"/>'">更新--%>
-                        <%--</button> --%>
                     <button class="update" type="button" align="center" data-id="<c:out value="${customer.id}"/>"
                             data-name="<c:out value="${customer.name}"/>">
                         更新
