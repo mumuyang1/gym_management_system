@@ -1,3 +1,4 @@
+!DOCTYPE
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <spring:url value="/lib/css/bootstrap.min.css" var="bootstrapCss"/>
 <link href="${bootstrapCss}" rel="stylesheet"/>

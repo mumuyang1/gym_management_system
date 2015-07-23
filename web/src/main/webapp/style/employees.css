@@ -33,16 +33,17 @@ a.update.button, a.delete.button {
     font-weight: bold;
     font-size: 14px;
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    width: 100px;
+    width: 50px;
     text-align: center;
     padding: 4px;
     text-decoration: none;
     border-radius: 3px;
+    margin: auto;
 }
 
 a.update.button {
     color: #FFFFFF;
-    background-color: #EAF2D3;
+    background-color: #bdf2c4;
 }
 
 a.delete.button {
@@ -50,13 +51,34 @@ a.delete.button {
     background-color: #F08080;
 }
 
-#updateForm,#updateUserInfoForm{
-    background-color: #CADEBE;
-    margin-left: 120px;
-    margin-right: 120px;
+#updateForm, #updateUserInfoForm {
     margin-top: 50px;
     font-family: Verdana, Arial, Helvetica, sans-serif;
+    margin-left: 18%;
+    margin-right: 50%;
+    width: 100%;
 }
+
+#updateForm input {
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 300px;
+    height: 30px;
+}
+
+#updateButton input {
+    margin-left: 160px;
+    margin-top: 10px;
+    width: 50px;
+}
+
+#positionSelect {
+    margin-top: 10px;
+}
+
+
+
+
 
 
 

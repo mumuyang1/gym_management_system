@@ -26,7 +26,7 @@
             <option value="<c:out value="${coach.id}"/>"><c:out value="${coach.name}"/></option>
         </c:forEach>
     </select>
-        时 间: <input style="border-color: pink" name="date" type="date"/>
+        时 间: <input style="border-color: pink" name="date" type="date" min="now"/>
         <input align="center" style="border-color: wheat" type="submit" value="确定添加"/>
     </form>
 

@@ -3,6 +3,7 @@
 <link href="${bootstrapCss}" rel="stylesheet"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<link href="./style/courses.css" rel="stylesheet" type="text/css">
 <html>
 <head>
     <title></title>
