@@ -14,26 +14,29 @@
 </head>
 <body>
 <jsp:include page="navigator.jsp"/>
-<div align="center" >
+<div id="updateCoursesForm">
     <form id="updateCourseForm" hidden>
         课程: <input type="text" name="name"/>
         <input id="idInput" type="text" name="id" hidden/>
-        <input align="center" type="submit"
+        <input type="submit"
                onclick="updateCourse();" value="更新"/>
     </form>
 </div>
-<table align="center" border="1">
-    <tr align="center">
+<table id="courseTable">
+    <tr id="courseTableTheFirstLine">
         <td>课程</td>
         <td>删除</td>
         <td>更新</td>
     </tr>
     <c:forEach var="course" items="${courseList}">
-        <tr align="center">
+        <tr>
             <td><c:out value="${course.name}"/></td>
-            <td><a href="javascript:;" onclick="deleteCourse(<c:out value="${course.id}"/>);">删除</a></td>
+            <td><button class="deleteButton" type="button"
+                       onclick="deleteCourse(<c:out value="${course.id}"/>);">删除
+            </button>
+            </td>
             <td>
-                <button class="courseTable" type="button" align="center"
+                <button class="button courseTable" type="button"
                         data-course-name="<c:out value="${course.name}"/>"
                         data-course-id="<c:out value="${course.id}"/>">更新
                 </button>

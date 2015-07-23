@@ -6,7 +6,6 @@
 }
 
 .navigator ul {
-    list-style-type: armenian;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -17,7 +16,6 @@
 }
 
 .navigator a:link, a:visited {
-    display: block;
     width: 100px;
     padding: 4px;
     text-decoration: none;

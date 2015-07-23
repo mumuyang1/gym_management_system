@@ -1,3 +1,104 @@
-.employeeNav {
+.coursesNav {
     background-color: #C0C0C0;
+}
+
+.button {
+    border-top: 1px solid #97f7df;
+    background: #65d47a;
+    background: -webkit-gradient(linear, left top, left bottom, from(#aae3c0), to(#65d47a));
+    background: -webkit-linear-gradient(top, #aae3c0, #65d47a);
+    background: -moz-linear-gradient(top, #aae3c0, #65d47a);
+    background: -ms-linear-gradient(top, #aae3c0, #65d47a);
+    background: -o-linear-gradient(top, #aae3c0, #65d47a);
+    padding: 6.5px 13px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+    -webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    -moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
+    color: #000000;
+    font-size: 13px;
+    font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.button:hover {
+    border-top-color: #688c68;
+    background: #688c68;
+    color: #cccccc;
+}
+
+.button:active {
+    border-top-color: #5c1b26;
+    background: #5c1b26;
+}
+
+.deleteButton {
+    border-top: 1px solid #f59be4;
+    background: #d4659b;
+    background: -webkit-gradient(linear, left top, left bottom, from(#e3aac2), to(#d4659b));
+    background: -webkit-linear-gradient(top, #e3aac2, #d4659b);
+    background: -moz-linear-gradient(top, #e3aac2, #d4659b);
+    background: -ms-linear-gradient(top, #e3aac2, #d4659b);
+    background: -o-linear-gradient(top, #e3aac2, #d4659b);
+    padding: 6.5px 13px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+    -webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    -moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+    text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
+    color: #000000;
+    font-size: 13px;
+    font-family: 'Lucida Grande', Helvetica, Arial, Sans-Serif;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.deleteButton:hover {
+    border-top-color: #cc3f8a;
+    background: #cc3f8a;
+    color: #cccccc;
+}
+
+.deleteButton:active {
+    border-top-color: #5c1b26;
+    background: #5c1b26;
+}
+
+#courseTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    width: 70%;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+#courseTable td, #courseTable tr {
+    font-size: 1em;
+    border: 1px solid #f6f6f6;
+    padding: 3px 7px 2px 7px;
+    text-align: center;
+}
+
+#courseTableTheFirstLine {
+    font-size: 1.1em;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #f6f6f6;
+    color: #000000;
+    height: 50px;
+}
+
+#updateCoursesForm {
+    margin-left: 40%;
+    margin-right: 40%;
+    margin-top: 50px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
 }
