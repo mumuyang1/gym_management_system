@@ -61,7 +61,9 @@ public class ScheduleController {
             } else {
                 scheduleService.insertSchedule(new Schedule(new Course(courseService.getCourseIdByName(name)), date));
             }
+
             return new ModelAndView("redirect:/schedules");
+
         } else {
             return new ModelAndView("dateNotAvailableError");
         }

@@ -1,6 +1,7 @@
 package com.tw.core.controller;
 
 import com.tw.core.entity.Customer;
+import com.tw.core.entity.Employee;
 import com.tw.core.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -46,22 +47,11 @@ public class CustomerController {
 
     }
 
-//    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-//    public ModelAndView showUpdate(@PathVariable int id) {
-//
-//        ModelAndView modelAndView = new ModelAndView();
-//
-//        modelAndView.setViewName("customerManagement");
-//        modelAndView.addObject("customerList", customerService.getCustomers());
-//        modelAndView.addObject("customerToBeUpdated", customerService.getCustomer(id));
-//
-//        return modelAndView;
-//    }
-
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public void updateCustomer(@PathVariable int id,@RequestParam String customerName) {
+    public void updateCustomer(@PathVariable int id,@RequestParam String customerName, String coachId) {
 
-       customerService.updateCustomer(new Customer(id,customerName));
+       Customer customer = new Customer(id,customerName,new Employee(Integer.parseInt(coachId)));
+       customerService.updateCustomer(customer);
     }
 
 }
