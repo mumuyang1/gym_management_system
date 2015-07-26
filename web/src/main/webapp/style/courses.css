@@ -2,68 +2,40 @@
     background-color: #C0C0C0;
 }
 
-.button {
+.update-button {
     border-top: 1px solid #97f7df;
-    background: #65d47a;
-    background: -webkit-gradient(linear, left top, left bottom, from(#aae3c0), to(#65d47a));
     background: -webkit-linear-gradient(top, #aae3c0, #65d47a);
-    background: -moz-linear-gradient(top, #aae3c0, #65d47a);
-    background: -ms-linear-gradient(top, #aae3c0, #65d47a);
-    background: -o-linear-gradient(top, #aae3c0, #65d47a);
-    padding: 6.5px 13px;
+    padding: 6px 13px;
     -webkit-border-radius: 40px;
-    -moz-border-radius: 40px;
-    border-radius: 40px;
-    -webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
-    -moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
-    box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
-    text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
-    color: #000000;
     font-size: 13px;
-    text-decoration: none;
-    vertical-align: middle;
 }
 
-.button:hover {
+.update-button:hover {
     border-top-color: #688c68;
     background: #688c68;
     color: #cccccc;
 }
 
-.button:active {
+.update-button:active {
     border-top-color: #5c1b26;
     background: #5c1b26;
 }
 
-.deleteButton {
+.delete-button {
     border-top: 1px solid #f59be4;
-    background: #d4659b;
-    background: -webkit-gradient(linear, left top, left bottom, from(#e3aac2), to(#d4659b));
     background: -webkit-linear-gradient(top, #e3aac2, #d4659b);
-    background: -moz-linear-gradient(top, #e3aac2, #d4659b);
-    background: -ms-linear-gradient(top, #e3aac2, #d4659b);
-    background: -o-linear-gradient(top, #e3aac2, #d4659b);
-    padding: 6.5px 13px;
+    padding: 6px 13px;
     -webkit-border-radius: 40px;
-    -moz-border-radius: 40px;
-    border-radius: 40px;
-    -webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
-    -moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
-    box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
-    text-shadow: rgba(0, 0, 0, .4) 0 1px 0;
-    color: #000000;
     font-size: 13px;
-    text-decoration: none;
-    vertical-align: middle;
 }
 
-.deleteButton:hover {
+.delete-button:hover {
     border-top-color: #cc3f8a;
     background: #cc3f8a;
     color: #cccccc;
 }
 
-.deleteButton:active {
+.delete-button:active {
     border-top-color: #5c1b26;
     background: #5c1b26;
 }
@@ -100,7 +72,7 @@
     height: 30px;
 }
 
-#updateCoursesForm{
+#updateCourseForm{
     margin-left: 38%;
     margin-right: 30%;
     margin-top:50px;
@@ -109,24 +81,10 @@
 
 .submitInput {
     border-top: 1px solid #d47c1e;
-    background: #e8b26f;
-    background: -webkit-gradient(linear, left top, left bottom, from(#f0c273), to(#e8b26f));
     background: -webkit-linear-gradient(top, #f0c273, #e8b26f);
-    background: -moz-linear-gradient(top, #f0c273, #e8b26f);
-    background: -ms-linear-gradient(top, #f0c273, #e8b26f);
-    background: -o-linear-gradient(top, #f0c273, #e8b26f);
-    padding: 6.5px 13px;
+    padding: 6px 13px;
     -webkit-border-radius: 40px;
-    -moz-border-radius: 40px;
-    border-radius: 40px;
-    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-    box-shadow: rgba(0,0,0,1) 0 1px 0;
-    text-shadow: rgba(0,0,0,.4) 0 1px 0;
-    color: #000000;
     font-size: 13px;
-    text-decoration: none;
-    vertical-align: middle;
 }
 .submitInput:hover {
     border-top-color: #d4641e;

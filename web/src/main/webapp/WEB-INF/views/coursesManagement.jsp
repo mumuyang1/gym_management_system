@@ -7,7 +7,7 @@
 </head>
 <body>
 <jsp:include page="navigator.jsp"/>
-<div id="updateCoursesForm">
+<div>
     <form id="updateCourseForm" hidden>
         课程: <input id="nameInput" type="text" name="name"/>
         <input id="idInput" type="text" name="id" hidden/>
@@ -25,12 +25,12 @@
         <tr>
             <td><c:out value="${course.name}"/></td>
             <td>
-                <button class="deleteButton" type="button"
+                <button class="delete-button" type="button"
                         onclick="deleteCourse(<c:out value="${course.id}"/>);">删除
                 </button>
             </td>
             <td>
-                <button class="button courseTable" type="button"
+                <button class="update-button" type="button"
                         data-course-name="<c:out value="${course.name}"/>"
                         data-course-id="<c:out value="${course.id}"/>">更新
                 </button>
