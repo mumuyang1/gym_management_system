@@ -15,11 +15,18 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <mvc:resources mapping="/lib/**" location="/lib/" />
-    <mvc:resources mapping="/style/**" location="/style/" />
-    <mvc:resources mapping="/js/**" location="/js/" />
+    <mvc:resources mapping="/lib/**" location="/lib/"/>
+    <mvc:resources mapping="/style/**" location="/style/"/>
+    <mvc:resources mapping="/js/**" location="/js/"/>
 
-    <mvc:annotation-driven />
+    <mvc:annotation-driven/>
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.tw.core.utils.NotLoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    
 </beans>
 
