@@ -3,28 +3,30 @@ function deleteCourse(id) {
     $.ajax({
         url: '/web/courses/' + id,
         type: 'DELETE',
-        dataType: 'text',
-        success: function () {
-            window.location.reload();
-        }
-    })
+        dataType: 'text'
+    }).done(function () {
+        window.location.reload();
+    });
 }
 
 function updateCourse() {
+
     var form = $('#updateCourseForm');
     var id = $("#idInput").val();
+
     form.submit(function (ev) {
         $.ajax({
             type: "PUT",
             url: "/web/courses/" + id,
-            data: form.serialize(),
-            success: function (data) {
-                window.location = "http://localhost:8080/web/courses";
-            }
+            data: form.serialize()
+        }).done(function () {
+
+            window.location = "http://localhost:8080/web/courses";
         });
         ev.preventDefault();
     });
 }
+
 $(function () {
 
     $('.courseTable').on('click', function () {

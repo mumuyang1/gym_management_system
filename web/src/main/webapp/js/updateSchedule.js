@@ -1,19 +1,21 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
-    var frm = $('#updateScheduleInfoForm');
+    var form = $('#updateScheduleInfoForm');
     var id = $('#idInput').val();
-    frm.submit(function (ev) {
+
+    form.submit(function (ev) {
         $.ajax({
             type: "PUT",
             url: "/web/schedules/" + id,
-            data: frm.serialize(),
-            success: function (data) {
-                if(data === "timeNotAvailable"){
-                    window.alert("时间冲突，请重新选时间");
-                }
-                window.location = "../";
+            data: form.serialize()
+
+        }).done(function (data) {
+            if (data === "timeNotAvailable") {
+                window.alert("时间冲突，请重新选时间");
             }
+            window.location = "../";
         });
         ev.preventDefault();
     });
+
 });

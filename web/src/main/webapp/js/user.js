@@ -14,18 +14,19 @@ function deleteUser(id) {
 
 function updateUser() {
 
-    var frm = $('#updateUserInfoForm');
+    var form = $('#updateUserInfoForm');
     var id = $('#idInput').val();
 
-    frm.submit(function (ev) {
+    form.submit(function (ev) {
         $.ajax({
             type: "PUT",
             url: "/web/users/" + id,
-            data: frm.serialize(),
-            success: function (data) {
-                window.location = "http://localhost:8080/web/employees";
-            }
+            data: form.serialize()
+
+        }).done(function () {
+            window.location = "http://localhost:8080/web/employees";
         });
+
         ev.preventDefault();
     });
 }
@@ -50,7 +51,6 @@ $(function () {
         $('input[name=position]').val(employeePosition);
         $('input[name=gender]').val(employeeGender);
         $('input[name=employeeId]').val(employeeId);
-
 
         $('#updateForm').show();
     });

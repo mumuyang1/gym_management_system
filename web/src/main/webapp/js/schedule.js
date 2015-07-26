@@ -1,10 +1,10 @@
-function deleteASchedule(id){
+function deleteASchedule(id) {
+
     $.ajax({
         url: '/web/schedules/' + id,
         type: 'DELETE',
-        dataType: 'text',
-        success: function () {
-            window.location.reload();
-        }
-    })
+        dataType: 'text'
+    }).done(function () {
+        window.location.reload();
+    });
 }

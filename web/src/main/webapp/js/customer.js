@@ -2,13 +2,11 @@ function deleteCustomer(id) {
     $.ajax({
         url: '/web/customers/' + id,
         type: 'DELETE',
-        dataType: 'text',
-        success: function () {
-            window.location.reload();
-        }
+        dataType: 'text'
+    }).done(function () {
+        window.location.reload();
     })
 }
-
 
 function updateCustomer() {
 
@@ -19,10 +17,9 @@ function updateCustomer() {
         $.ajax({
             type: "PUT",
             url: "/web/customers/" + id,
-            data: form.serialize(),
-            success: function (data) {
-                window.location = "http://localhost:8080/web/customers";
-            }
+            data: form.serialize()
+        }).done(function() {
+            window.location = "http://localhost:8080/web/customers";
         });
         ev.preventDefault();
     });
@@ -33,10 +30,13 @@ $(function () {
     $('.update').on('click', function () {
         var id = $(this).data('id');
         var name = $(this).data('name');
+        var coachId = $(this).data('coach-id');
 
         $('input[name=customerId]').val(id);
         $('input[name=customerName]').val(name);
+        $('input[name=coachId]').val(coachId);
 
         $('#updateCustomerForm').show();
+        $('#updateText').show();
     });
 });

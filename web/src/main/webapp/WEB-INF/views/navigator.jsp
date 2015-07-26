@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<link href="./style/navigator.css" rel="stylesheet" type="text/css"/>
 <html>
 <head>
     <title></title>
+    <link href="./style/navigator.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 
