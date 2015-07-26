@@ -1,16 +1,9 @@
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%--<spring:url value="/lib/css/bootstrap.min.css" var="bootstrapCss"/>--%>
-<link href="${bootstrapCss}" rel="stylesheet"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link href="./style/courses.css" rel="stylesheet" type="text/css">
 <html>
 <head>
     <title></title>
-    <spring:url value="/lib/js/jquery-1.11.1.min.js" var="jquery"/>
-    <script src="${jquery}"></script>
-    <spring:url value="./js/course.js" var="courseJs"/>
-    <script src="${courseJs}"></script>
+    <link href="./style/courses.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <jsp:include page="navigator.jsp"/>
@@ -31,9 +24,10 @@
     <c:forEach var="course" items="${courseList}">
         <tr>
             <td><c:out value="${course.name}"/></td>
-            <td><button class="deleteButton" type="button"
-                       onclick="deleteCourse(<c:out value="${course.id}"/>);">删除
-            </button>
+            <td>
+                <button class="deleteButton" type="button"
+                        onclick="deleteCourse(<c:out value="${course.id}"/>);">删除
+                </button>
             </td>
             <td>
                 <button class="button courseTable" type="button"
@@ -43,6 +37,8 @@
             </td>
         </tr>
     </c:forEach>
+    <script src="./lib/js/jquery-1.11.1.min.js"></script>
+    <script src="./js/course.js"></script>
 </table>
 </body>
 </html>

@@ -1,15 +1,10 @@
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link href="./style/employees.css" rel="stylesheet" type="text/css"/>
 
 <html>
 <head>
     <title></title>
-    <spring:url value="/lib/js/jquery-1.11.1.min.js" var="jquery"/>
-    <script src="${jquery}"></script>
-    <spring:url value="/js/user.js" var="userJs"/>
-    <script src="${userJs}"></script>
+    <link href="./style/employees.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <jsp:include page="navigator.jsp"/>
@@ -35,7 +30,8 @@
             </option>
         </select>
         </div>
-        <div class="inputUpdate" id="updateButton"><input align="center" type="submit" onclick="updateUser();" value="更新"/></div>
+        <div class="inputUpdate" id="updateButton"><input align="center" type="submit" onclick="updateUser();"
+                                                          value="更新"/></div>
     </form>
 </div>
 <table id="userInfoTable">
@@ -47,7 +43,6 @@
         <td>职位</td>
         <td>删除</td>
         <td>更新用户信息</td>
-
     </tr>
     <c:forEach var="user" items="${userList}">
         <tr>
@@ -73,6 +68,10 @@
             </td>
         </tr>
     </c:forEach>
+
+    <script src="./lib/js/jquery-1.11.1.min.js"></script>
+    <script src="./js/user.js"></script>
+
 </table>
 
 </body>

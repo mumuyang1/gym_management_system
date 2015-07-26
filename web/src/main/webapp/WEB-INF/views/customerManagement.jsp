@@ -1,17 +1,12 @@
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<spring:url value="/lib/css/bootstrap.min.css" var="bootstrapCss"/>
-<link href="${bootstrapCss}" rel="stylesheet"/>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" href="./style/customer.css" type="text/css">
 <html>
 <head>
     <title></title>
-    <spring:url value="/lib/js/jquery-1.11.1.min.js" var="jquery"/>
-    <script src="${jquery}"></script>
-    <spring:url value="/js/customer.js" var="customerJs"/>
-    <script src="${customerJs}"></script>
+    <link href="./style/customer.css" rel="stylesheet" type="text/css">
+    <link href="./lib/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 </head>
+
 <body>
 <jsp:include page="navigator.jsp"/>
 <div class="row">
@@ -86,5 +81,7 @@
         </table>
     </div>
 </div>
+<script src="./lib/js/jquery-1.11.1.min.js"></script>
+<script src="./js/customer.js"></script>
 </body>
 </html>

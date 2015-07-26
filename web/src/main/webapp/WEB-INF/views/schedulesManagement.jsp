@@ -1,16 +1,11 @@
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<spring:url value="/lib/css/bootstrap.min.css" var="bootstrapCss"/>
-<link href="${bootstrapCss}" rel="stylesheet"/>
-<link href="./style/schedules.css" rel="stylesheet" type="text/css">
+
 <html>
 <head>
     <title></title>
-    <spring:url value="/js/schedule.js" var="scheduleJs"/>
-    <script src="${scheduleJs}"></script>
-    <spring:url value="/lib/js/jquery-1.11.1.min.js" var="jquery"/>
-    <script src="${jquery}"></script>
+    <link href="./lib/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="./style/schedules.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -47,6 +42,7 @@
                     <input name="date" type="date" class="form-control" id="inputDate">
                 </div>
             </div>
+
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-default">添加</button>
@@ -132,7 +128,8 @@
                     <td><c:out value="${schedule.course.employee.name}"/></td>
                     <td><c:out value="${schedule.date}"/></td>
                     <td><c:out value="${schedule.customer.name}"/></td>
-                    <td><a href="javascript:;"  class="btn btn-sm btn-danger" onclick="deleteASchedule(<c:out value="${schedule.id}"/>);">删除</a>
+                    <td><a href="javascript:;" class="btn btn-sm btn-danger"
+                           onclick="deleteASchedule(<c:out value="${schedule.id}"/>);">删除</a>
                     </td>
                     <td>
                         <button type="button" class="btn btn-sm btn-success"
@@ -144,6 +141,7 @@
         </table>
     </div>
 </div>
-<div class="col-md-3"></div>
+<script src="./js/schedule.js"></script>
+<script src="./lib/js/jquery-1.11.1.min.js"></script>
 </body>
 </html>

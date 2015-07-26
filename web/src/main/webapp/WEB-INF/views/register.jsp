@@ -1,17 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: yzli
-  Date: 7/17/15
-  Time: 9:12 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<spring:url value="/lib/css/bootstrap.min.css" var="bootstrapCss"/>
-<link href="${bootstrapCss}" rel="stylesheet"/>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>注册</title>
+    <link href="./lib/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="container">

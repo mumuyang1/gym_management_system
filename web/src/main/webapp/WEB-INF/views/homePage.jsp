@@ -1,11 +1,10 @@
 !DOCTYPE
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<spring:url value="/lib/css/bootstrap.min.css" var="bootstrapCss"/>
-<link href="${bootstrapCss}" rel="stylesheet"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title></title>
+    <spring:url value="/lib/css/bootstrap.min.css" var="bootstrapCss"/>
+    <link href="${bootstrapCss}" rel="stylesheet"/>
 </head>
 <body>
 <div class="container">
