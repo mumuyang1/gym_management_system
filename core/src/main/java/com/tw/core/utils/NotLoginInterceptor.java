@@ -11,7 +11,7 @@ public class NotLoginInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handle) {
-        if (request.getServletPath().startsWith("/login")) {
+        if (request.getServletPath().startsWith("/users/login") || request.getServletPath().startsWith("/users/sign-up")) {
             return true;
         }
 
@@ -23,7 +23,7 @@ public class NotLoginInterceptor extends HandlerInterceptorAdapter {
 
             Cookie cookie = new Cookie("fromUrl", fromUrl);
             response.addCookie(cookie);
-            response.sendRedirect(request.getContextPath() + "/login");
+            response.sendRedirect(request.getContextPath() + "/users/login");
         } catch (IOException e) {
             e.printStackTrace();
         }

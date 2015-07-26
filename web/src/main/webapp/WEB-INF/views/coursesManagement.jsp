@@ -14,6 +14,12 @@
         <input class="submitInput" id="submitInput" type="submit"
                onclick="updateCourse();" value="更新"/>
     </form>
+    <form id="addCourseForm" action="/web/courses/creation" method="post">
+
+        名称: <input type="text" name="name"/>
+
+        <input align="center" type="submit" value="添加"/>
+    </form>
 </div>
 <table id="courseTable">
     <tr id="courseTableTheFirstLine">

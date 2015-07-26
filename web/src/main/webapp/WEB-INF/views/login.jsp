@@ -11,7 +11,7 @@
     <h3 align="center">登录</h3>
 
     <div align="center">
-        <form action="/web/login" method="post">
+        <form action="/web/users/login" method="post">
             用户名:&nbsp;<input type="text" name="name"></br>
             密&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp;<input type="password" name="password"/></br></br>
             <input align="center" style="border-color: wheat" type="submit" value="登录"/>

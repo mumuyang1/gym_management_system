@@ -27,6 +27,15 @@ public class CourseController {
 
         return modelAndView;
     }
+    @RequestMapping(value = "/creation", method = RequestMethod.POST)
+    public ModelAndView insertCourse(@RequestParam String name) {
+
+
+        ModelAndView modelAndView = new ModelAndView();
+
+        courseService.insertCourse(new Course(name));
+        return modelAndView;
+    }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public void updateCustomer(@PathVariable int id,@RequestParam String name) {
