@@ -7,9 +7,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 /**
  * Created by yzli on 7/18/15.
  */
@@ -21,7 +18,7 @@ public class EmployeeController {
     private UserService userService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ModelAndView getEmployeePage(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView getEmployeePage() {
 
         ModelAndView modelAndView = new ModelAndView();
 

@@ -21,7 +21,7 @@ public class loginController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @RequestMapping(value = "login", method = RequestMethod.GET)
     public ModelAndView getLoginPage(HttpServletResponse response, HttpServletRequest request) {
 
         ModelAndView modelAndView = new ModelAndView();
@@ -32,32 +32,18 @@ public class loginController {
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public ModelAndView getLogin(@CookieValue("url") String fromUrl,@RequestParam String name, String password, HttpSession session, HttpServletResponse response, HttpServletRequest request) {
-
-        ModelAndView modelAndView = new ModelAndView();
+    public ModelAndView getLogin(@CookieValue("fromUrl") String fromUrl,@RequestParam String name, String password, HttpSession session, HttpServletResponse response) {
 
         if (userService.login(name, password)) {
 
-            session.setAttribute("user", "login");
+            session.setAttribute("isLogin", true);
+            deleteFromUrlInCookie(response, fromUrl);
+            return new ModelAndView("redirect:" + fromUrl);
 
-            if (fromUrl.equals("http://localhost:8080/web/")) {
-
-                ModelAndView modelAndView1 = new ModelAndView("redirect:/users");
-                modelAndView.addObject("user", name);
-
-                return modelAndView1;
-            } else {
-
-                ModelAndView modelAndView1 = new ModelAndView("redirect:" + fromUrl);
-
-                deleteFromUrlInCookie(response,fromUrl);
-
-                return modelAndView1;
-            }
         } else {
 
             System.out.println("登录失败+++++++++++++++++++");
-            return new ModelAndView("redirect:/");
+            return new ModelAndView("redirect:/login");
         }
     }
 

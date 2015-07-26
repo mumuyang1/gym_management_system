@@ -1,6 +1,5 @@
 package com.tw.core.dao.hibernateDao;
 
-import com.tw.core.entity.Employee;
 import com.tw.core.entity.User;
 import com.tw.core.utils.HibernateUtil;
 import org.hibernate.Query;
@@ -85,7 +84,7 @@ public class UserDao {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
 
-        Query query = session.createQuery("SELECT count(*) FROM User user where user.name = :name and user.password = :password");
+        Query query = session.createQuery("SELECT count(*) FROM User user where user.userName = :name and user.password = :password");
 
         query.setParameter("name", name);
         query.setParameter("password", MD5Util.md5(password));

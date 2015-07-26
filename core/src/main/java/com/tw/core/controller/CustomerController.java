@@ -7,9 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 /**
  * Created by yzli on 7/21/15.
  */
@@ -32,7 +29,7 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/creation", method = RequestMethod.POST)
-    public ModelAndView insertCustomer(@RequestParam String name, HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView insertCustomer(@RequestParam String name) {
 
 
         customerService.insertCustomer(new Customer(name));
@@ -41,7 +38,7 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public void deleteCustomer(@PathVariable int id,HttpServletRequest request, HttpServletResponse response) {
+    public void deleteCustomer(@PathVariable int id) {
 
         customerService.deleteCustomer(id);
 

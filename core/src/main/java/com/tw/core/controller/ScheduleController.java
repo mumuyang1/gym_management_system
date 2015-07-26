@@ -12,10 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 /**
  * Created by yzli on 7/19/15.
  */
@@ -33,7 +29,7 @@ public class ScheduleController {
     private CustomerService customerService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ModelAndView getSchedulePage(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView getSchedulePage() {
 
         ModelAndView modelAndView = new ModelAndView();
 
@@ -46,7 +42,7 @@ public class ScheduleController {
     }
 
     @RequestMapping(value = "/creation", method = RequestMethod.POST)
-    public ModelAndView insertCourse(@RequestParam String name, String date, String coachId, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView insertCourse(@RequestParam String name, String date, String coachId) {
 
         if (scheduleService.isTheDateAvailable(Integer.parseInt(coachId), date)) {
 
@@ -70,7 +66,7 @@ public class ScheduleController {
     }
 
     @RequestMapping(value = "/creation/private", method = RequestMethod.POST)
-    public ModelAndView insertPrivateCourse(@RequestParam String date, String coachId,String customerId, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView insertPrivateCourse(@RequestParam String date, String coachId,String customerId) {
 
         if (scheduleService.isTheDateAvailable(Integer.parseInt(coachId), date)) {
 
@@ -100,7 +96,7 @@ public class ScheduleController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ModelAndView getUserById(@PathVariable int id, HttpSession session, HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView getUserById(@PathVariable int id) {
 
         ModelAndView modelAndView = new ModelAndView();
 
