@@ -51,10 +51,10 @@
             <td><c:out value="${user.employee.gender}"/></td>
             <td><c:out value="${user.employee.email}"/></td>
             <td><c:out value="${user.employee.position}"/></td>
-            <td><a class="delete button" href="javascript:"
+            <td><a class="delete a" href="javascript:"
                    onclick="deleteUser(<c:out value="${user.id}"/>);">删除</a></td>
             <td>
-                <a class="update button" href="javascript:" data-user-name="<c:out value="${user.userName}"/>"
+                <a class="update a" href="javascript:" data-user-name="<c:out value="${user.userName}"/>"
                    data-password="<c:out value="${user.password}"/>"
                    data-employee-name="<c:out value="${user.employee.name}"/>"
                    data-employee-email="<c:out value="${user.employee.email}"/>"
