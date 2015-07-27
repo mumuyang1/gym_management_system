@@ -17,13 +17,15 @@
     <form id="addCourseForm" class="course-form" action="/web/courses/creation" method="post">
 
         名称: <input type="text" class="name-input" name="courseName"/>
-        教练:
-        <select id="inputCoach" name="coachId">
-            <c:forEach var="coach" items="${coachList}">
-                <option value="<c:out value="${coach.id}"/>"><c:out value="${coach.name}"/></option>
-            </c:forEach>
-        </select>
 
+        <div>
+            教练:
+            <select id="inputCoach" name="coachId">
+                <c:forEach var="coach" items="${coachList}">
+                    <option value="<c:out value="${coach.id}"/>"><c:out value="${coach.name}"/></option>
+                </c:forEach>
+            </select>
+        </div>
         <input align="center" type="submit" class="submitInput" value="添加"/>
     </form>
 </div>
