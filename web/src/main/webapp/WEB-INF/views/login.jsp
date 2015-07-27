@@ -2,11 +2,9 @@
 <html>
 <head>
     <title></title>
-    <link href="./lib/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="container">
-    <jsp:include page="navigator.jsp"/>
 
     <h3 align="center">登录</h3>
 
