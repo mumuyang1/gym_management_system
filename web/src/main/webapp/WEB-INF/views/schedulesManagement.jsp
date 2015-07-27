@@ -18,25 +18,22 @@
 
         <form action="/web/schedules/creation" method="post" class="form-horizontal">
             <div class="form-group">
-                <label for="inputCourseName" class="col-sm-2 control-label">课程:</label>
+                <label for="inputCourseName" class="col-sm-3 control-label">课程/教练:</label>
 
                 <div class="col-sm-7">
-                    <input type="text" name="name" class="form-control" id="inputCourseName" placeholder="请输入课程名称">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputCoach" class="col-sm-2 control-label">教练:</label>
-
-                <div class="col-sm-7">
-                    <select id="inputCoach" name="coachId" class="form-control">
-                        <c:forEach var="coach" items="${coachList}">
-                            <option value="<c:out value="${coach.id}"/>"><c:out value="${coach.name}"/></option>
+                    <select id="inputCourseName" name="courseId" class="form-control">
+                        <c:forEach var="course" items="${courseList}">
+                            <c:if test="${course.name != '私教课'}">
+                                <option value="<c:out value="${course.id}"/>"><c:out
+                                        value="${course.name} / ${course.employee.name}"/></option>
+                            </c:if>
                         </c:forEach>
                     </select>
                 </div>
             </div>
+
             <div class="form-group">
-                <label for="inputDate" class="col-sm-2 control-label">时间:</label>
+                <label for="inputDate" class="col-sm-3 control-label">时间:</label>
 
                 <div class="col-sm-7">
                     <input name="date" type="date" class="form-control" id="inputDate">
@@ -44,7 +41,7 @@
             </div>
 
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
+                <div class="col-sm-offset-3 col-sm-10">
                     <button type="submit" class="btn btn-default">添加</button>
                 </div>
             </div>
@@ -56,13 +53,11 @@
 
         <form action="/web/schedules/creation/private" method="post" class="form-horizontal">
             <div class="form-group">
-                <%--<label for="inputPrivateCourseName" class="col-sm-2 control-label">课程:</label>--%>
                 <label class="col-sm-2 control-label">课程:</label>
 
                 <div class="col-sm-7">
                     <input type="text" name="name" class="form-control" id="inputPrivateCourseName"
                            readonly value="私教课">
-                    <%--<label  name="name" class="col-sm-2   control-label">私教课</label>--%>
                 </div>
             </div>
             <div class="form-group">

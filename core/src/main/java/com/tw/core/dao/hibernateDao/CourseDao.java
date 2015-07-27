@@ -127,4 +127,18 @@ public class CourseDao {
         session.delete(course);
         session.getTransaction().commit();
     }
+
+    public int getCoachIdByCourseId(int courseId){
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        Query query = session.createQuery("SELECT course.employee.id FROM Course course where course.id = :id");
+        query.setParameter("id", courseId);
+
+        int id = (Integer)query.list().get(0);
+
+        session.getTransaction().commit();
+
+        return id;
+    }
 }

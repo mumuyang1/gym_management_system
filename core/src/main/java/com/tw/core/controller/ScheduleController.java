@@ -36,27 +36,20 @@ public class ScheduleController {
         modelAndView.setViewName("schedulesManagement");
         modelAndView.addObject("scheduleList", scheduleService.getSchedules());
         modelAndView.addObject("coachList", employeeService.getCoaches());
-        modelAndView.addObject("customerList",customerService.getCustomers());
+        modelAndView.addObject("customerList", customerService.getCustomers());
+        modelAndView.addObject("courseList", courseService.getCourses());
 
         return modelAndView;
     }
 
     @RequestMapping(value = "/creation", method = RequestMethod.POST)
-    public ModelAndView insertCourse(@RequestParam String name, String date, String coachId) {
+    public ModelAndView insertCourse(@RequestParam String courseId, String date) {
 
-        if (scheduleService.isTheDateAvailable(Integer.parseInt(coachId), date)) {
+        int coachId = courseService.getCoachIdByCourseId(Integer.parseInt(courseId));
+        if (scheduleService.isTheDateAvailable(coachId, date)) {
 
-            Employee employee = new Employee(Integer.parseInt(coachId));
-            Course course = new Course(employee, name);
-            Schedule schedule = new Schedule(course, date);
-
-            if (!courseService.isCourseExist(name)) {
-                courseService.insertCourse(course);
-                scheduleService.insertSchedule(schedule);
-
-            } else {
-                scheduleService.insertSchedule(new Schedule(new Course(courseService.getCourseIdByName(name)), date));
-            }
+            Employee employee = new Employee(coachId);
+            scheduleService.insertSchedule(new Schedule(new Course(Integer.parseInt(courseId),employee), date));
 
             return new ModelAndView("redirect:/schedules");
 
@@ -66,20 +59,20 @@ public class ScheduleController {
     }
 
     @RequestMapping(value = "/creation/private", method = RequestMethod.POST)
-    public ModelAndView insertPrivateCourse(@RequestParam String date, String coachId,String customerId) {
+    public ModelAndView insertPrivateCourse(@RequestParam String date, String coachId, String customerId) {
 
         if (scheduleService.isTheDateAvailable(Integer.parseInt(coachId), date)) {
 
             if (!courseService.isCourseExist("私教课")) {
                 Employee employee = new Employee(Integer.parseInt(coachId));
                 Course course = new Course(employee, "私教课");
-                Schedule schedule = new Schedule(course, date,new Customer(Integer.parseInt(customerId)));
+                Schedule schedule = new Schedule(course, date, new Customer(Integer.parseInt(customerId)));
 
                 courseService.insertCourse(course);
                 scheduleService.insertSchedule(schedule);
 
             } else {
-                scheduleService.insertSchedule(new Schedule(new Course(courseService.getCourseIdByName("私教课")), date,new Customer(Integer.parseInt(customerId))));
+                scheduleService.insertSchedule(new Schedule(new Course(courseService.getCourseIdByName("私教课")), date, new Customer(Integer.parseInt(customerId))));
             }
             customerService.addCoachForCustomer(Integer.parseInt(coachId), Integer.parseInt(customerId));
 
@@ -108,13 +101,13 @@ public class ScheduleController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public String updateUser(@PathVariable int id, @RequestParam String date, String courseId,String coachId) {
+    public String updateUser(@PathVariable int id, @RequestParam String date, String courseId, String coachId) {
 
 
         if (scheduleService.isTheDateAvailable(Integer.parseInt(coachId), date)) {
             Course course = new Course(Integer.parseInt(courseId));
 
-            Schedule schedule = new Schedule(id,course, date);
+            Schedule schedule = new Schedule(id, course, date);
             scheduleService.updateSchedule(schedule);
             return null;
         } else {

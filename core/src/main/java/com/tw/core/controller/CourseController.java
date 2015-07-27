@@ -3,6 +3,7 @@ package com.tw.core.controller;
 import com.tw.core.entity.Course;
 import com.tw.core.entity.Employee;
 import com.tw.core.service.CourseService;
+import com.tw.core.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,6 +18,9 @@ public class CourseController {
     @Autowired
     private CourseService courseService;
 
+    @Autowired
+    private EmployeeService employeeService;
+
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ModelAndView getCoursesPage() {
 
@@ -24,19 +28,21 @@ public class CourseController {
 
         modelAndView.setViewName("coursesManagement");
         modelAndView.addObject("courseList", courseService.getCourses());
+        modelAndView.addObject("coachList", employeeService.getCoaches());
 
         return modelAndView;
     }
-    @RequestMapping(value = "/creation", method = RequestMethod.POST)
-    public ModelAndView insertCourse(@RequestParam String courseName) {
 
-        courseService.insertCourse(new Course(courseName));
+    @RequestMapping(value = "/creation", method = RequestMethod.POST)
+    public ModelAndView insertCourse(@RequestParam String courseName ,String coachId) {
+
+        courseService.insertCourse(new Course(new Employee(Integer.parseInt(coachId)),courseName));
 
         return new ModelAndView("redirect:/courses");
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public void updateCustomer(@PathVariable int id,@RequestParam String name) {
+    public void updateCustomer(@PathVariable int id, @RequestParam String name) {
 
         courseService.updateCourse(new Course(id, name, new Employee()));
     }

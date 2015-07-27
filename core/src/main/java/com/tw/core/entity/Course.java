@@ -20,6 +20,10 @@ public class Course {
     public Course() {
     }
 
+    public Course(int id, Employee employee) {
+        this.id = id;
+        this.employee = employee;
+    }
 
     public Course(int id) {
         this.id = id;
