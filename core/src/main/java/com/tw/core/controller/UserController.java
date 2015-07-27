@@ -120,9 +120,9 @@ public class UserController {
         }
     }
 
-    private void deleteFromUrlInCookie(HttpServletResponse response, String todeleteUrl) {
+    private void deleteFromUrlInCookie(HttpServletResponse response, String toDeleteUrl) {
 
-        Cookie cookie = new Cookie("url", todeleteUrl);
+        Cookie cookie = new Cookie("url", toDeleteUrl);
         cookie.setPath("/");
         cookie.setMaxAge(0);
         response.addCookie(cookie);
