@@ -8,17 +8,17 @@
 <body>
 <jsp:include page="navigator.jsp"/>
 <div>
-    <form id="updateCourseForm" hidden>
-        课程: <input id="nameInput" type="text" name="name"/>
+    <form id="updateCourseForm" class="course-form" hidden>
+        课程: <input id="nameInput" class="name-input" type="text" name="name"/>
         <input id="idInput" type="text" name="id" hidden/>
         <input class="submitInput" id="submitInput" type="submit"
                onclick="updateCourse();" value="更新"/>
     </form>
-    <form id="addCourseForm" action="/web/courses/creation" method="post">
+    <form id="addCourseForm" class="course-form" action="/web/courses/creation" method="post">
 
-        名称: <input type="text" name="name"/>
+        名称: <input type="text" class="name-input" name="courseName"/>
 
-        <input align="center" type="submit" value="添加"/>
+        <input align="center" type="submit" class="submitInput" value="添加"/>
     </form>
 </div>
 <table id="courseTable">

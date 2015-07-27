@@ -28,13 +28,11 @@ public class CourseController {
         return modelAndView;
     }
     @RequestMapping(value = "/creation", method = RequestMethod.POST)
-    public ModelAndView insertCourse(@RequestParam String name) {
+    public ModelAndView insertCourse(@RequestParam String courseName) {
 
+        courseService.insertCourse(new Course(courseName));
 
-        ModelAndView modelAndView = new ModelAndView();
-
-        courseService.insertCourse(new Course(name));
-        return modelAndView;
+        return new ModelAndView("redirect:/courses");
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)

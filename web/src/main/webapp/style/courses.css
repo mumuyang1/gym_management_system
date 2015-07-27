@@ -66,18 +66,20 @@
     height: 50px;
 }
 
-#nameInput{
+.name-input{
     border-radius: 5px;
     width: 300px;
     height: 30px;
 }
 
-#updateCourseForm{
+.course-form{
     margin-left: 38%;
     margin-right: 30%;
     margin-top:50px;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
+
+
 
 .submitInput {
     border-top: 1px solid #d47c1e;
