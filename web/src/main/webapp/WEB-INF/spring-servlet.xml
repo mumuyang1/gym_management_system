@@ -18,6 +18,7 @@
     <mvc:resources mapping="/lib/**" location="/lib/"/>
     <mvc:resources mapping="/style/**" location="/style/"/>
     <mvc:resources mapping="/js/**" location="/js/"/>
+    <mvc:resources mapping="/angular/**" location="/angular/"/>
 
     <mvc:annotation-driven/>
 
