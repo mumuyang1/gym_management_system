@@ -27,6 +27,26 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+
+    //使用angular
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    @ResponseBody
+    List<User> showIndex() {
+
+        System.out.println("需爱被警方把健康绝对服从地方好了ui");
+        HibernateAwareObjectMapper mapper = new HibernateAwareObjectMapper();
+
+        Hibernate4Module hbm = new Hibernate4Module();
+        hbm.enable(Hibernate4Module.Feature.FORCE_LAZY_LOADING);
+
+        mapper.registerModule(hbm);
+
+
+        return userService.getUsers();
+    }
+
+
+    //    使用jsp
 //    @RequestMapping(value = "", method = RequestMethod.GET)
 //    public ModelAndView showIndex() {
 //
@@ -38,28 +58,6 @@ public class UserController {
 //
 //    }
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
-    public
-    @ResponseBody
-    List<User> showIndex() {
-
-        System.out.println("需爱被警方把健康绝对服从地方好了ui");
-        HibernateAwareObjectMapper mapper = new HibernateAwareObjectMapper();
-
-        Hibernate4Module hbm = new Hibernate4Module();
-        hbm.enable(Hibernate4Module.Feature.FORCE_LAZY_LOADING);
-
-        mapper.registerModule(hbm);
-//        ObjectWriter w = mapper.writer();
-//        String result = null;
-//        try {
-//            result = w.writeValueAsString();
-//        } catch (JsonProcessingException e) {
-//            e.printStackTrace();
-//        }
-
-        return userService.getUsers();
-    }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)

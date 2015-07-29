@@ -9,4 +9,14 @@ angular.module('gym_management_systemApp')
             $scope.courses = courses;
         });
 
+        $.deleteUser = function(id){
+
+            console.log("点击delete" + id);
+            $http.delete('/web/api/courses/{id}')
+                .success(function(){
+                    console.log("删除成功");
+            });
+
+        }
+
     });

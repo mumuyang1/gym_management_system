@@ -23,14 +23,15 @@ public class CourseController {
     @Autowired
     private EmployeeService employeeService;
 
+    //使用angular
     @RequestMapping(value = "", method = RequestMethod.GET)
     public List<Course> getCourses() {
-
-//        modelAndView.addObject("coachList", employeeService.getCoaches());
 
         return courseService.getCourses();
     }
 
+
+//    使用jsp
 //    @RequestMapping(value = "", method = RequestMethod.GET)
 //    public ModelAndView getCoursesPage() {
 //
