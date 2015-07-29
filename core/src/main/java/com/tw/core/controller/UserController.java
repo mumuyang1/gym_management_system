@@ -1,9 +1,11 @@
 package com.tw.core.controller;
 
+import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module;
 import com.tw.core.entity.Employee;
 import com.tw.core.entity.User;
 import com.tw.core.service.UserService;
 import com.tw.core.utils.CookieUtil;
+import com.tw.core.utils.HibernateAwareObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -37,16 +39,26 @@ public class UserController {
 //    }
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public @ResponseBody List<User> showIndex() {
+    public
+    @ResponseBody
+    List<User> showIndex() {
 
         System.out.println("需爱被警方把健康绝对服从地方好了ui");
-        System.out.println(        userService.getUsers().get(0).getEmployee().getName()
+        HibernateAwareObjectMapper mapper = new HibernateAwareObjectMapper();
 
-        );
+        Hibernate4Module hbm = new Hibernate4Module();
+        hbm.enable(Hibernate4Module.Feature.FORCE_LAZY_LOADING);
 
-        userService.getUsers().get(0).getEmployee();
+        mapper.registerModule(hbm);
+//        ObjectWriter w = mapper.writer();
+//        String result = null;
+//        try {
+//            result = w.writeValueAsString();
+//        } catch (JsonProcessingException e) {
+//            e.printStackTrace();
+//        }
 
-        return   userService.getUsers();
+        return userService.getUsers();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)

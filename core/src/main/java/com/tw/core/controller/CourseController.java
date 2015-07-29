@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 /**
  * Created by yzli on 7/21/15.
  */
@@ -22,16 +24,24 @@ public class CourseController {
     private EmployeeService employeeService;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ModelAndView getCoursesPage() {
+    public List<Course> getCourses() {
 
-        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.addObject("coachList", employeeService.getCoaches());
 
-        modelAndView.setViewName("coursesManagement");
-        modelAndView.addObject("courseList", courseService.getCourses());
-        modelAndView.addObject("coachList", employeeService.getCoaches());
-
-        return modelAndView;
+        return courseService.getCourses();
     }
+
+//    @RequestMapping(value = "", method = RequestMethod.GET)
+//    public ModelAndView getCoursesPage() {
+//
+//        ModelAndView modelAndView = new ModelAndView();
+//
+//        modelAndView.setViewName("coursesManagement");
+//        modelAndView.addObject("courseList", courseService.getCourses());
+//        modelAndView.addObject("coachList", employeeService.getCoaches());
+//
+//        return modelAndView;
+//    }
 
     @RequestMapping(value = "/creation", method = RequestMethod.POST)
     public ModelAndView insertCourse(@RequestParam String courseName ,String coachId) {

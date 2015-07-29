@@ -12,10 +12,10 @@ angular
                 controller: 'UsersCtrl'
             })
 
-            //.when('//:pageNow', {
-            //    templateUrl: './views/shoppingMall.html',
-            //    controller: 'ShoppingMallCtrl'
-            //})
+            .when('/courses', {
+                templateUrl: './views/courseManagement.html',
+                controller: 'CoursesCtrl'
+            })
 
             //.when('/cart', {
             //    templateUrl: 'views/cart.html',

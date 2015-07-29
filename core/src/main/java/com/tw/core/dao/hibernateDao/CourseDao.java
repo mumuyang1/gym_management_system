@@ -31,6 +31,10 @@ public class CourseDao {
         List<Course> courseList = session.createQuery("from Course").list();
         session.getTransaction().commit();
 
+        for (Course course : courseList){
+            course.getEmployee().getName();
+        }
+
         return courseList;
     }
 

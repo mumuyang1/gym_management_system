@@ -1,24 +1,21 @@
-<lable> course</lable>
-
-<table class="table table-bordered">
-    <caption><h2>课程表</h2></caption>
-    <tr>
-        <th>课名</th>
-        <th>教练</th>
-        <th>删除</th>
-        <th>更新</th>
-    </tr>
-    <tr ng-repeat="course in courses">
-        <td>{{user.userName}}</td>
-        <td>{{user.employee.name}}</td>
-        <td>{{user.employee.gender}}</td>
-        <td>{{user.employee.email}}</td>
-        <td>{{user.employee.position}}</td>
-        <td>
-            <a ng-click="deleteUser(user.id)">删除</a>
-        </td>
-        <td>
-            <a href="#/users/update/{{user.id}}">修改</a>
-        </td>
-    </tr>
-</table>
+<div class="container">
+    <table class="table table-bordered">
+        <caption><h2>课程表</h2></caption>
+        <tr>
+            <th>课名</th>
+            <th>教练</th>
+            <th>删除</th>
+            <th>更新</th>
+        </tr>
+        <tr ng-repeat="course in courses">
+            <td>{{course.name}}</td>
+            <td>{{course.employee.name}}</td>
+            <td>
+                <a ng-click="deleteUser(user.id)">删除</a>
+            </td>
+            <td>
+                <a href="#/users/update/{{user.id}}">更新</a>
+            </td>
+        </tr>
+    </table>
+</div>
