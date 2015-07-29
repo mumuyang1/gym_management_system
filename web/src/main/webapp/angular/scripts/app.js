@@ -1,7 +1,6 @@
 'use strict';
 
-angular
-    .module('gym_management_systemApp', [
+angular.module('gym_management_systemApp', [
         'ngRoute'
     ])
 

@@ -6,8 +6,15 @@ angular.module("gym_management_systemApp")
         this.getCourses = function (callback) {
             $http.get('/web/api/courses').success(function (courses) {
 
-                console.log("进入service方法");
                 callback(courses);
             });
         };
+
+        this.deleteCourse = function (id,callback){
+
+            $http.delete('/web/api/courses/'+id)
+                .success(function(){
+                    callback();
+                });
+        }
     });
