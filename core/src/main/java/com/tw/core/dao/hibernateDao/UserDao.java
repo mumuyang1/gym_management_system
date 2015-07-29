@@ -44,25 +44,18 @@ public class UserDao {
     }
 
     public List<User> getUsers() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-//        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
-//        session.beginTransaction();
+        session.beginTransaction();
         Query query = session.createQuery("from User");
 
         List<User> userList = query.list();
 
-//        for (User user : userList){
-//            user.getEmployee().getName();
-//        }
+        for (User user : userList){
+            user.getEmployee().getName();
+        }
 
-//        session.getTransaction().commit();
-
-//        System.out.println(        userList.get(0).getEmployee().getName()
-//                +"========================="        );
-
-
-
+        session.getTransaction().commit();
         return userList;
     }
 
@@ -90,7 +83,7 @@ public class UserDao {
         return user;
     }
 
-    public boolean login (String name, String password){
+    public boolean login(String name, String password) {
 
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
@@ -100,7 +93,7 @@ public class UserDao {
         query.setParameter("name", name);
         query.setParameter("password", MD5Util.md5(password));
 
-        Long count = (Long)query.uniqueResult();
+        Long count = (Long) query.uniqueResult();
 
         session.getTransaction().commit();
 
