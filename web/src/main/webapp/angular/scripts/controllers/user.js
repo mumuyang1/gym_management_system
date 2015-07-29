@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('gym_management_systemApp')
-    .controller('UsersCtrl', function ($scope) {
+    .controller('UsersCtrl', function ($scope,$http) {
 
         //$scope.$emit('to-parent-productManageActive');
         //
@@ -20,6 +20,10 @@ angular.module('gym_management_systemApp')
         //    $scope.clickDelete = clickDelete;
         //}
 
+        $http.get('/web/api/users').success(function (users) {
+            console.log(users[0].employee+"----------");
+            $scope.users = users;
+        });
 
 
     });

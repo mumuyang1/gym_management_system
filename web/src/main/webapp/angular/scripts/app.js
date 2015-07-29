@@ -11,11 +11,12 @@ angular
                 templateUrl: './views/employeesManagement.html',
                 controller: 'UsersCtrl'
             })
-            //
-            //.when('/shoppingMall/:pageNow', {
-            //    templateUrl: 'views/shoppingMall.html',
+
+            //.when('//:pageNow', {
+            //    templateUrl: './views/shoppingMall.html',
             //    controller: 'ShoppingMallCtrl'
             //})
+
             //.when('/cart', {
             //    templateUrl: 'views/cart.html',
             //    controller: 'CartCtrl'

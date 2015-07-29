@@ -13,6 +13,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * Created by yzli on 7/12/15.
@@ -24,15 +25,28 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+//    @RequestMapping(value = "", method = RequestMethod.GET)
+//    public ModelAndView showIndex() {
+//
+//        ModelAndView modelAndView = new ModelAndView();
+//
+//        modelAndView.setViewName("index");
+//        modelAndView.addObject("userList", userService.getUsers());
+//        return modelAndView;
+//
+//    }
+
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ModelAndView showIndex() {
+    public @ResponseBody List<User> showIndex() {
 
-        ModelAndView modelAndView = new ModelAndView();
+        System.out.println("需爱被警方把健康绝对服从地方好了ui");
+        System.out.println(        userService.getUsers().get(0).getEmployee().getName()
 
-        modelAndView.setViewName("index");
-        modelAndView.addObject("userList", userService.getUsers());
-        return modelAndView;
+        );
 
+        userService.getUsers().get(0).getEmployee();
+
+        return   userService.getUsers();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)

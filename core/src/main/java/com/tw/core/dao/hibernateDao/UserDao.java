@@ -44,13 +44,24 @@ public class UserDao {
     }
 
     public List<User> getUsers() {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
+//        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
-        session.beginTransaction();
+//        session.beginTransaction();
         Query query = session.createQuery("from User");
 
         List<User> userList = query.list();
-        session.getTransaction().commit();
+
+//        for (User user : userList){
+//            user.getEmployee().getName();
+//        }
+
+//        session.getTransaction().commit();
+
+//        System.out.println(        userList.get(0).getEmployee().getName()
+//                +"========================="        );
+
+
 
         return userList;
     }
