@@ -1,22 +1,26 @@
 'use strict';
 
 angular.module('gym_management_systemApp')
-    .controller('CoursesCtrl', function ($scope, $http) {
+    .controller('CoursesCtrl', function ($scope, $http, CourseService) {
 
-        $http.get('/web/api/courses').success(function (courses) {
 
-            console.log("课程。。。。。。。。"+courses[0].name);
+        CourseService.getCourses(function (courses) {
             $scope.courses = courses;
         });
 
-        $.deleteUser = function(id){
-
-            console.log("点击delete" + id);
-            $http.delete('/web/api/courses/{id}')
-                .success(function(){
-                    console.log("删除成功");
-            });
-
-        }
+        //$scope.deleteCourse = function(id){
+        //
+        //    console.log("点击delete" + id);
+        //    $http.delete('/web/api/courses/'+id)
+        //        .success(function(){
+        //
+        //            $http.get('/web/api/courses').success(function (courses) {
+        //
+        //                $scope.courses = courses;
+        //            });
+        //
+        //            console.log("删除成功");
+        //    });
+        //}
 
     });
