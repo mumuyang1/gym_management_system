@@ -26,9 +26,9 @@ angular.module("gym_management_systemApp")
                 });
         };
 
-        this.updateCourse = function (id, name, coachId) {
+        this.updateCourse = function (course, coachId,callback) {
 
-            $http.put('/web/api/courses/' + id, {'id': id, 'name': name, 'employee': {id: coachId}})
+            $http.put('/web/api/courses/' + course.id, {'id': course.id, 'name': course.name, 'employee': {id: coachId}})
                 .success(function (data) {
                     callback(data);
                 });

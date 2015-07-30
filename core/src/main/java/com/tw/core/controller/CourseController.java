@@ -88,11 +88,11 @@ public class CourseController {
 //        return new ModelAndView("redirect:/courses");
 //    }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public void updateCustomer(@PathVariable int id, @RequestParam String name) {
-
-        courseService.updateCourse(new Course(id, name, new Employee()));
-    }
+//    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+//    public void updateCustomer(@PathVariable int id, @RequestParam String name) {
+//
+//        courseService.updateCourse(new Course(id, name, new Employee()));
+//    }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deleteCourse(@PathVariable int id) {

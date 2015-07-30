@@ -60,7 +60,7 @@ angular.module('gym_management_systemApp')
 
             CoursesService.getCourse(id, function (course) {
 
-                $scope.newUpdateCourse = course.name;
+                $scope.newCourse = course;
 
                 UsersService.getCoaches(function (coachUsers) {
 
@@ -73,9 +73,13 @@ angular.module('gym_management_systemApp')
             });
         };
 
-        $scope.updateCourse = function (id, name, coachId) {
+        $scope.updateCourse = function (course, coachId) {
 
-            CoursesService.updateCourse(id, name, coachId);
+            CoursesService.updateCourse(course, coachId, function () {
+
+                chargeViewLayout(true,true);
+                getCourses();
+            });
 
             chargeViewLayout(true, false);
         };

@@ -13,11 +13,11 @@
         </div>
 
         <div class="text-center" ng-hide="hideUpdateForm">
-            <input class="form-control form-group"  ng-model="newUpdateCourse">
+            <input class="form-control form-group"  ng-model="newCourse.name">
             <select  ng-model="coachUser" class="form-control"
                     ng-options="coachUser.employee.name for coachUser in coachUsers">
             </select>
-            <input type="submit" class="btn btn-success btn-sm" value="更新" ng-click="updateCourse(newUpdateCourseName,coachUser.employee.id)">
+            <input type="submit" class="btn btn-success btn-sm" value="更新" ng-click="updateCourse(newCourse,coachUser.employee.id)">
             <input type="submit" class="btn btn-info btn-sm" value="取消" ng-click="cancelUpdateCourse()">
         </div>
 
