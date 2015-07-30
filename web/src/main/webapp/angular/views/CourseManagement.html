@@ -1,6 +1,19 @@
 <div class="container">
     <table class="table table-bordered">
-        <caption><h2>课程表</h2></caption>
+        <h2>课程表</h2>
+        <button type="button" ng-click="showAddCourseForm()">增加新课程</button>
+
+        <div class="text-center" ng-hide="hideAddForm">
+            <input class="form-control form-group" placeholder="请输入课程名称" ng-model="newCourseName">
+            <select id="inputPrivateCoach"   ng-model="coachUser" class="form-control"
+                    ng-options="coachUser.employee.name for coachUser in coachUsers">
+                    <!--ng-options="c.financial_year for c in account_year">-->
+                    <!--<option ng-repeat="user in coachUsers" value={{user.id}}>{{user.employee.name}}</option>-->
+            </select>
+            <input type="submit" class="btn btn-success btn-sm" value="添加" ng-click="addCourse(newCourseName,coachUser.employee.id)">
+            <input type="submit" class="btn btn-info btn-sm" value="取消" ng-click="cancelAddCourse()">
+        </div>
+
         <tr>
             <th>课名</th>
             <th>教练</th>

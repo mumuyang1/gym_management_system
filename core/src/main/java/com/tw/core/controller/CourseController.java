@@ -6,7 +6,6 @@ import com.tw.core.service.CourseService;
 import com.tw.core.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -30,6 +29,12 @@ public class CourseController {
         return courseService.getCourses();
     }
 
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public void insertCourse(@RequestBody Course course) {
+
+        courseService.insertCourse(new Course(new Employee(course.getEmployee().getId()),course.getName()));
+    }
+
 
 //    使用jsp
 //    @RequestMapping(value = "", method = RequestMethod.GET)
@@ -44,13 +49,13 @@ public class CourseController {
 //        return modelAndView;
 //    }
 
-    @RequestMapping(value = "/creation", method = RequestMethod.POST)
-    public ModelAndView insertCourse(@RequestParam String courseName ,String coachId) {
-
-        courseService.insertCourse(new Course(new Employee(Integer.parseInt(coachId)),courseName));
-
-        return new ModelAndView("redirect:/courses");
-    }
+//    @RequestMapping(value = "/creation", method = RequestMethod.POST)
+//    public ModelAndView insertCourse(@RequestParam String courseName ,String coachId) {
+//
+//        courseService.insertCourse(new Course(new Employee(Integer.parseInt(coachId)),courseName));
+//
+//        return new ModelAndView("redirect:/courses");
+//    }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public void updateCustomer(@PathVariable int id, @RequestParam String name) {
