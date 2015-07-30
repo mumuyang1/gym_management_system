@@ -1,8 +1,6 @@
 package com.tw.core.dao.hibernateDao;
 
-import com.tw.core.entity.Course;
 import com.tw.core.entity.Schedule;
-import com.tw.core.entity.User;
 import com.tw.core.utils.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -33,6 +31,10 @@ public class ScheduleDao {
 
         List<Schedule> scheduleList = session.createQuery("from Schedule").list();
         session.getTransaction().commit();
+
+        for (Schedule schedule:scheduleList){
+            schedule.getCourse().getName();
+        }
 
         return scheduleList;
     }

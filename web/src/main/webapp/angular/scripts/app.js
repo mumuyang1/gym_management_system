@@ -16,10 +16,10 @@ angular.module('gym_management_systemApp', [
                 controller: 'CoursesCtrl'
             })
 
-            //.when('/cart', {
-            //    templateUrl: 'views/cart.html',
-            //    controller: 'CartCtrl'
-            //})
+            .when('/schedules', {
+                templateUrl: './views/scheduleManagement.html',
+                controller: 'ScheduleCtrl'
+            })
             //.when('/pay', {
             //    templateUrl: 'views/pay.html',
             //    controller: 'PayCtrl'

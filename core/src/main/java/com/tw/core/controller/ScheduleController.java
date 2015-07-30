@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 /**
  * Created by yzli on 7/19/15.
  */
@@ -28,19 +30,28 @@ public class ScheduleController {
     @Autowired
     private CustomerService customerService;
 
+    //use angular
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public ModelAndView getSchedulePage() {
+    public List<Schedule> getSchedules() {
 
-        ModelAndView modelAndView = new ModelAndView();
-
-        modelAndView.setViewName("schedulesManagement");
-        modelAndView.addObject("scheduleList", scheduleService.getSchedules());
-        modelAndView.addObject("coachList", employeeService.getCoaches());
-        modelAndView.addObject("customerList", customerService.getCustomers());
-        modelAndView.addObject("courseList", courseService.getCourses());
-
-        return modelAndView;
+        return scheduleService.getSchedules();
     }
+
+
+    //use jsp
+//    @RequestMapping(value = "", method = RequestMethod.GET)
+//    public ModelAndView getSchedulePage() {
+//
+//        ModelAndView modelAndView = new ModelAndView();
+//
+//        modelAndView.setViewName("schedulesManagement");
+//        modelAndView.addObject("scheduleList", scheduleService.getSchedules());
+//        modelAndView.addObject("coachList", employeeService.getCoaches());
+//        modelAndView.addObject("customerList", customerService.getCustomers());
+//        modelAndView.addObject("courseList", courseService.getCourses());
+//
+//        return modelAndView;
+//    }
 
     @RequestMapping(value = "/creation", method = RequestMethod.POST)
     public ModelAndView insertCourse(@RequestParam String courseId, String date) {
