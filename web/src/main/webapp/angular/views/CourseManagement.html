@@ -5,13 +5,20 @@
 
         <div class="text-center" ng-hide="hideAddForm">
             <input class="form-control form-group" placeholder="请输入课程名称" ng-model="newCourseName">
-            <select id="inputPrivateCoach"   ng-model="coachUser" class="form-control"
+            <select  ng-model="coachUser" class="form-control"
                     ng-options="coachUser.employee.name for coachUser in coachUsers">
-                    <!--ng-options="c.financial_year for c in account_year">-->
-                    <!--<option ng-repeat="user in coachUsers" value={{user.id}}>{{user.employee.name}}</option>-->
             </select>
             <input type="submit" class="btn btn-success btn-sm" value="添加" ng-click="addCourse(newCourseName,coachUser.employee.id)">
             <input type="submit" class="btn btn-info btn-sm" value="取消" ng-click="cancelAddCourse()">
+        </div>
+
+        <div class="text-center" ng-hide="hideUpdateForm">
+            <input class="form-control form-group"  ng-model="newUpdateCourse">
+            <select  ng-model="coachUser" class="form-control"
+                    ng-options="coachUser.employee.name for coachUser in coachUsers">
+            </select>
+            <input type="submit" class="btn btn-success btn-sm" value="更新" ng-click="updateCourse(newUpdateCourseName,coachUser.employee.id)">
+            <input type="submit" class="btn btn-info btn-sm" value="取消" ng-click="cancelUpdateCourse()">
         </div>
 
         <tr>
@@ -27,7 +34,7 @@
                 <a type="button" ng-click="deleteCourse(course.id)">删除</a>
             </td>
             <td>
-                <a href="#/users/update/{{user.id}}">更新</a>
+                <a type="button" ng-click="showUpdateCourseForm(course.id)">更新</a>
             </td>
         </tr>
     </table>

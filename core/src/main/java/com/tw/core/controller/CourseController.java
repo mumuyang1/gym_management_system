@@ -30,10 +30,41 @@ public class CourseController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public void insertCourse(@RequestBody Course course) {
+    public String insertCourse(@RequestBody Course course) {
 
-        courseService.insertCourse(new Course(new Employee(course.getEmployee().getId()),course.getName()));
+        if (!courseService.isCourseExist(course.getName())) {
+            courseService.insertCourse(new Course(new Employee(course.getEmployee().getId()), course.getName()));
+            return null;
+
+        } else {
+            return "hasExisted";
+        }
     }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Course  getCourse(@PathVariable int id) {
+
+        return courseService.getCourse(id);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public void updateCourse(@RequestBody Course course) {
+
+        courseService.updateCourse(course);
+//        courseService.updateCourse(new Course(id, name, new Employee()));
+    }
+
+//@RequestMapping(value = "/", method = RequestMethod.POST)
+//    public ResponseEntity<?> insertCourse(@RequestBody Course course) {
+//
+//        if(!courseService.isCourseExist(course.getName())){
+//            courseService.insertCourse(new Course(new Employee(course.getEmployee().getId()),course.getName()));
+//            return null;
+//
+//        }else {
+//            return new ResponseEntity<>("该课程已经存在", HttpStatus.BAD_REQUEST);
+//        }
+//    }
 
 
 //    使用jsp
