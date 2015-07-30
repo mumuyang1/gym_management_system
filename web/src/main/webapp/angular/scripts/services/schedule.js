@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
 angular.module('gym_management_systemApp')
-    .service('ScheduleService',function($http){
+    .service('SchedulesService',function($http){
 
         this.getSchedules = function(callback){
 
@@ -9,5 +9,14 @@ angular.module('gym_management_systemApp')
                 .success(function(shcedules){
                     callback(shcedules)
                 });
-        }
+        };
+
+        this.addSchedule = function(schedule,callback){
+
+            $http.post('/web/api/schedules',schedule)
+                .success(function(data){
+                    callback(data);
+            });
+        };
+
     });

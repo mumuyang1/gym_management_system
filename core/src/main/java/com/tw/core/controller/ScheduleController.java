@@ -37,6 +37,23 @@ public class ScheduleController {
         return scheduleService.getSchedules();
     }
 
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    public String insertSchedule(@RequestBody Schedule schedule) {
+
+        String date = schedule.getDate().substring(0, 10);
+
+        if (scheduleService.isTheDateAvailable(schedule.getCourse().getEmployee().getId(),date)){
+
+            schedule.setDate(date);
+            scheduleService.insertSchedule(schedule);
+
+            return null;
+        }else {
+
+            return "dateIsNotAvailable";
+        }
+    }
+
 
     //use jsp
 //    @RequestMapping(value = "", method = RequestMethod.GET)
@@ -53,21 +70,21 @@ public class ScheduleController {
 //        return modelAndView;
 //    }
 
-    @RequestMapping(value = "/creation", method = RequestMethod.POST)
-    public ModelAndView insertCourse(@RequestParam String courseId, String date) {
-
-        int coachId = courseService.getCoachIdByCourseId(Integer.parseInt(courseId));
-        if (scheduleService.isTheDateAvailable(coachId, date)) {
-
-            Employee employee = new Employee(coachId);
-            scheduleService.insertSchedule(new Schedule(new Course(Integer.parseInt(courseId),employee), date));
-
-            return new ModelAndView("redirect:/schedules");
-
-        } else {
-            return new ModelAndView("dateNotAvailableError");
-        }
-    }
+//    @RequestMapping(value = "/creation", method = RequestMethod.POST)
+//    public ModelAndView insertSchedule(@RequestParam String courseId, String date) {
+//
+//        int coachId = courseService.getCoachIdByCourseId(Integer.parseInt(courseId));
+//        if (scheduleService.isTheDateAvailable(coachId, date)) {
+//
+//            Employee employee = new Employee(coachId);
+//            scheduleService.insertSchedule(new Schedule(new Course(Integer.parseInt(courseId),employee), date));
+//
+//            return new ModelAndView("redirect:/schedules");
+//
+//        } else {
+//            return new ModelAndView("dateNotAvailableError");
+//        }
+//    }
 
     @RequestMapping(value = "/creation/private", method = RequestMethod.POST)
     public ModelAndView insertPrivateCourse(@RequestParam String date, String coachId, String customerId) {
@@ -100,7 +117,7 @@ public class ScheduleController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ModelAndView getUserById(@PathVariable int id) {
+    public ModelAndView getScheduleById(@PathVariable int id) {
 
         ModelAndView modelAndView = new ModelAndView();
 
@@ -112,7 +129,7 @@ public class ScheduleController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public String updateUser(@PathVariable int id, @RequestParam String date, String courseId, String coachId) {
+    public String updateSchedule(@PathVariable int id, @RequestParam String date, String courseId, String coachId) {
 
 
         if (scheduleService.isTheDateAvailable(Integer.parseInt(coachId), date)) {

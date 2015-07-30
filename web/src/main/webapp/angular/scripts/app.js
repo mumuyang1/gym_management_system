@@ -17,8 +17,8 @@ angular.module('gym_management_systemApp', [
             })
 
             .when('/schedules', {
-                templateUrl: './views/scheduleManagement.html',
-                controller: 'ScheduleCtrl'
+                templateUrl: './views/schedule.html',
+                controller: 'SchedulesCtrl'
             })
             //.when('/pay', {
             //    templateUrl: 'views/pay.html',

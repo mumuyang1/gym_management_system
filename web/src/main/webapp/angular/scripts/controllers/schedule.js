@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('gym_management_systemApp')
-    .controller('ScheduleCtrl',function($scope,ScheduleService){
+    .controller('SchedulesCtrl',function($scope,SchedulesService,CoursesService){
 
         function getSchedules(){
-            ScheduleService.getSchedules(function(schedules){
+            SchedulesService.getSchedules(function(schedules){
 
                 $scope.schedules = schedules;
             });
@@ -12,4 +12,22 @@ angular.module('gym_management_systemApp')
 
         getSchedules();
 
+        CoursesService.getCourses(function(courses){
+
+            $scope.courses = courses;
+        });
+
+        $scope.addSchedule = function(schedule){
+
+            SchedulesService.addSchedule(schedule,function(result){
+
+                if(result == "dateIsNotAvailable"){
+
+                    window.alert("该教练时间冲突，请重新安排时间😊");
+                }else{
+
+                    getSchedules();
+                }
+            });
+        };
     });
