@@ -1,11 +1,10 @@
 package com.tw.core.controller;
 
-import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module;
 import com.tw.core.entity.Employee;
 import com.tw.core.entity.User;
 import com.tw.core.service.UserService;
 import com.tw.core.utils.CookieUtil;
-import com.tw.core.utils.HibernateAwareObjectMapper;
+import flexjson.JSONSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +14,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.List;
 
 /**
  * Created by yzli on 7/12/15.
@@ -27,22 +25,15 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    private JSONSerializer jsonSerializer = new JSONSerializer();
+
 
     //使用angular
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
-    List<User> showIndex() {
+    String showIndex() {
 
-        System.out.println("需爱被警方把健康绝对服从地方好了ui");
-        HibernateAwareObjectMapper mapper = new HibernateAwareObjectMapper();
-
-        Hibernate4Module hbm = new Hibernate4Module();
-        hbm.enable(Hibernate4Module.Feature.FORCE_LAZY_LOADING);
-
-        mapper.registerModule(hbm);
-
-
-        return userService.getUsers();
+        return jsonSerializer.serialize(userService.getUsers());
     }
 
 

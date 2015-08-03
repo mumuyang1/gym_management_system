@@ -4,10 +4,9 @@ import com.tw.core.entity.Course;
 import com.tw.core.entity.Employee;
 import com.tw.core.service.CourseService;
 import com.tw.core.service.EmployeeService;
+import flexjson.JSONSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * Created by yzli on 7/21/15.
@@ -22,11 +21,13 @@ public class CourseController {
     @Autowired
     private EmployeeService employeeService;
 
+    private JSONSerializer jsonSerializer = new JSONSerializer();
+
     //使用angular
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public List<Course> getCourses() {
+    public String getCourses() {
 
-        return courseService.getCourses();
+        return jsonSerializer.serialize(courseService.getCourses());
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)

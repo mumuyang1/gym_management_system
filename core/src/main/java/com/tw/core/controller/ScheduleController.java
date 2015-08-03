@@ -8,11 +8,10 @@ import com.tw.core.service.CourseService;
 import com.tw.core.service.CustomerService;
 import com.tw.core.service.EmployeeService;
 import com.tw.core.service.ScheduleService;
+import flexjson.JSONSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.List;
 
 /**
  * Created by yzli on 7/19/15.
@@ -30,11 +29,14 @@ public class ScheduleController {
     @Autowired
     private CustomerService customerService;
 
+    private JSONSerializer jsonSerializer = new JSONSerializer();
+
     //use angular
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public List<Schedule> getSchedules() {
+    public String getSchedules() {
 
-        return scheduleService.getSchedules();
+//        return scheduleService.getSchedules();
+        return jsonSerializer.serialize(scheduleService.getSchedules());
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)

@@ -21,14 +21,6 @@
     <mvc:resources mapping="/angular/**" location="/angular/"/>
 
     <mvc:annotation-driven>
-        <mvc:message-converters>
-            <!-- Use the HibernateAware mapper instead of the default -->
-            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-                <property name="objectMapper">
-                    <bean class="com.tw.core.utils.HibernateAwareObjectMapper" />
-                </property>
-            </bean>
-        </mvc:message-converters>
     </mvc:annotation-driven>
 
     <mvc:interceptors>
