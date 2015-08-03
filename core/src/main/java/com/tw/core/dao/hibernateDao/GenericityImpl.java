@@ -1,6 +1,7 @@
 package com.tw.core.dao.hibernateDao;
 
 import com.tw.core.utils.HibernateUtil;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
@@ -18,16 +19,12 @@ public class GenericityImpl<T> implements GenericityInterface<T> {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
 
-//        Criteria criteria = session.createCriteria(tClass);
-//        List<T> list = criteria.list();
+        Criteria criteria = session.createCriteria(tClass);
+        List<T> list = criteria.list();
 
-        System.out.println(tClass.getName());
 
-        String s = tClass.getName().substring(19);
-        System.out.println("--------------------------------");
-        System.out.println(s);
-        System.out.println("--------------------------------");
-        List<T> list = session.createQuery("from " + s).list();
+//        String s = tClass.getName().substring(19);
+//        List<T> list = session.createQuery("from " + s).list();
 
         session.getTransaction().commit();
         return list;

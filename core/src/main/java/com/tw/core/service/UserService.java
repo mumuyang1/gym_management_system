@@ -22,8 +22,7 @@ public class UserService {
 
     public List<User> getUsers() {
 
-        return userDao.getUsers();
-//        return genericityInterface.getDataList(User.class);
+        return genericityInterface.getDataList(User.class);
 
     }
 

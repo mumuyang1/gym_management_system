@@ -38,8 +38,7 @@ public class CourseService {
     }
 
     public List<Course> getCourses(){
-        return courseDao.getCourses();
-//        return genericityInterface.getDataList(Course.class);
+        return genericityInterface.getDataList(Course.class);
     }
 
     public Course getCourse(int id){

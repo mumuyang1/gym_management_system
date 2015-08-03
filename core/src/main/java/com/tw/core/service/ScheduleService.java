@@ -1,5 +1,6 @@
 package com.tw.core.service;
 
+import com.tw.core.dao.hibernateDao.GenericityInterface;
 import com.tw.core.dao.hibernateDao.ScheduleDao;
 import com.tw.core.entity.Course;
 import com.tw.core.entity.Schedule;
@@ -19,6 +20,9 @@ public class ScheduleService {
     @Autowired
     private CourseService courseService;
 
+    @Autowired
+    private GenericityInterface<Schedule> genericityInterface;
+
     public void insertSchedule(Schedule schedule){
 
         scheduleDao.insertSchedule(schedule);
@@ -26,7 +30,7 @@ public class ScheduleService {
 
     public List<Schedule> getSchedules(){
 
-        return scheduleDao.getSchedules();
+        return  genericityInterface.getDataList(Schedule.class);
     }
 
     public boolean isTheDateAvailable(int coachId,String date){
