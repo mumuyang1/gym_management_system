@@ -11,16 +11,9 @@
 
                     <div class="col-sm-7">
                         <select id="inputCourseName" name="courseId" class="form-control" ng-model="schedule.course"
-                                ng-options="course.name +'  /  ' +course.employee.name for course in courses"
-                                ng-value="course.id">
-                            <!--<c:forEach var="course" items="${courseList}">-->
-                                <!--<c:if test="${course.name != '私教课'}">-->
-                                    <!--<option value="<c:out value="${course.id}"/>"><c:out-->
-                                        <!--value="${course.name} / ${course.employee.name}"/></option>-->
-                                <!--</c:if>-->
-                            <!--</c:forEach>-->
-                            <option value="">-------请选择课程-------</option>
+                                ng-options="course.name +'  /  ' +course.employee.name for course in courses">
 
+                            <option value="">-------请选择课程-------</option>
                         </select>
                     </div>
                 </div>
@@ -58,9 +51,9 @@
 
                     <div class="col-sm-7">
                         <select id="inputPrivateCoach" name="coachId" class="form-control">
-                            <c:forEach var="coach" items="${coachList}">
-                                <option value="<c:out value="${coach.id}"/>"><c:out value="${coach.name}"/></option>
-                            </c:forEach>
+                            <!--<c:forEach var="coach" items="${coachList}">-->
+                                <!--<option value="<c:out value="${coach.id}"/>"><c:out value="${coach.name}"/></option>-->
+                            <!--</c:forEach>-->
                         </select>
                     </div>
                 </div>
@@ -69,12 +62,12 @@
 
                     <div class="col-sm-7">
                         <select id="inputPrivateCustomer" name="customerId" class="form-control">
-                            <c:forEach var="customer" items="${customerList}">
-                                <c:if test="${customer.employee.id == null}">
-                                    <option value="<c:out value="${customer.id}"/>"><c:out
-                                        value="${customer.name}"/></option>
-                                </c:if>
-                            </c:forEach>
+                            <!--<c:forEach var="customer" items="${customerList}">-->
+                                <!--<c:if test="${customer.employee.id == null}">-->
+                                    <!--<option value="<c:out value="${customer.id}"/>"><c:out-->
+                                        <!--value="${customer.name}"/></option>-->
+                                <!--</c:if>-->
+                            <!--</c:forEach>-->
                         </select>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 package com.tw.core.service;
 
+import com.tw.core.dao.hibernateDao.GenericityInterface;
 import com.tw.core.dao.hibernateDao.UserDao;
 import com.tw.core.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,17 @@ import java.util.List;
 @Service
 public class UserService {
 
-    @Autowired private UserDao userDao;
+    @Autowired
+    private UserDao userDao;
+
+    @Autowired
+    private GenericityInterface<User> genericityInterface;
 
     public List<User> getUsers() {
 
         return userDao.getUsers();
+//        return genericityInterface.getDataList(User.class);
+
     }
 
     public void deleteUserBy(int id) {
@@ -40,8 +47,8 @@ public class UserService {
         return userDao.getUserById(id);
     }
 
-    public boolean login(String name, String password){
+    public boolean login(String name, String password) {
 
-        return  userDao.login(name, password);
+        return userDao.login(name, password);
     }
 }

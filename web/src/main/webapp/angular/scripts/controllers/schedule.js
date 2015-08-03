@@ -19,6 +19,8 @@ angular.module('gym_management_systemApp')
 
         $scope.addSchedule = function(schedule){
 
+            console.log(schedule.date);
+
             SchedulesService.addSchedule(schedule,function(result){
 
                 if(result == "dateIsNotAvailable"){
