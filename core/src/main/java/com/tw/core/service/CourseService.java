@@ -21,7 +21,7 @@ public class CourseService {
     private GenericityInterface<Course> genericityInterface;
 
     public void insertCourse(Course course){
-        courseDao.insertCourse(course);
+        genericityInterface.insertData(course);
     }
 
     public boolean isCourseExist(String name){

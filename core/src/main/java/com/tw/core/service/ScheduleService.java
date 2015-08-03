@@ -25,7 +25,7 @@ public class ScheduleService {
 
     public void insertSchedule(Schedule schedule){
 
-        scheduleDao.insertSchedule(schedule);
+        genericityInterface.insertData(schedule);
     }
 
     public List<Schedule> getSchedules(){

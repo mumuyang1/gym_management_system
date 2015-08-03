@@ -22,7 +22,6 @@ public class GenericityImpl<T> implements GenericityInterface<T> {
         Criteria criteria = session.createCriteria(tClass);
         List<T> list = criteria.list();
 
-
 //        String s = tClass.getName().substring(19);
 //        List<T> list = session.createQuery("from " + s).list();
 
@@ -33,6 +32,12 @@ public class GenericityImpl<T> implements GenericityInterface<T> {
     @Override
     public void insertData(T t) {
 
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        session.save(t);
+
+        session.getTransaction().commit();
     }
 
     @Override
