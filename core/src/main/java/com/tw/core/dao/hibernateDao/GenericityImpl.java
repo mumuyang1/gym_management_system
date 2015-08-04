@@ -43,10 +43,21 @@ public class GenericityImpl<T> implements GenericityInterface<T> {
     @Override
     public void deleteData(T t) {
 
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        session.delete(t);
+
+        session.getTransaction().commit();
     }
 
     @Override
     public void updateData(T t) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
 
+        session.update(t);
+
+        session.getTransaction().commit();
     }
 }

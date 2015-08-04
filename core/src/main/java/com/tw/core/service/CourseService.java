@@ -46,11 +46,11 @@ public class CourseService {
     }
 
     public void updateCourse(Course course){
-        courseDao.updateCourse(course);
+        genericityInterface.updateData(course);
     }
 
     public void deleteCourse(int id){
-        courseDao.deleteCourse(id);
+        genericityInterface.deleteData(new Course(id));
     }
 
     public int getCoachIdByCourseId(int courseId){

@@ -38,17 +38,6 @@ public class CourseDao {
         return courseList;
     }
 
-
-
-//    public void updateCustomerCourse(){
-//
-//        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-//        session.beginTransaction();
-//
-//        session.save(course);
-//
-//    }
-
     public List<Course> getCoursesByCoachId(int coachId){
 
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
