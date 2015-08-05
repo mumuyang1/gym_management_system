@@ -35,4 +35,10 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/spring-servlet.xml</param-value>
     </context-param>
+
+    <context-param>
+        <param-name>databaseConfig</param-name>
+        <param-value>database-product</param-value>
+    </context-param>
+
 </web-app>
