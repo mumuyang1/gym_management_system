@@ -29,48 +29,5 @@
         </mvc:interceptor>
     </mvc:interceptors>
 
-    <context:property-placeholder location="classpath:${databaseConfig}.properties"/>
-    <!--<context:property-placeholder location="classpath:/hibernate.properties"/>-->
-
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="${jdbc.url}"/>
-        <property name="username" value="root"/>
-        <property name="password" value=""/>
-    </bean>
-
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan" value="com.tw.core"/>
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.format_sql">true</prop>
-                <!--<prop key="hibernate.hbm2ddl.auto">update</prop>-->
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-                <prop key="hibernate.enable_lazy_load_no_trans">true</prop>
-            </props>
-        </property>
-
-        <property name="mappingResources">
-            <list>
-                <value>employee.hbm.xml</value>
-                <value>user.hbm.xml</value>
-            </list>
-        </property>
-
-        <property name="annotatedClasses">
-            <list>
-                <value>com.tw.core.entity.Schedule</value>
-                <value>com.tw.core.entity.Course</value>
-                <value>com.tw.core.entity.Customer</value>
-            </list>
-        </property>
-    </bean>
-
-    <!-- enable the configuration of transactional behavior based on annotations -->
-    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
 </beans>
 
