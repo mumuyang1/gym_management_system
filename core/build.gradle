@@ -19,7 +19,7 @@ dependencies {
     compile 'net.sf.flexjson:flexjson:3.3'
     compile 'org.jmock:jmock-junit4:2.8.1'
     compile 'org.springframework:spring-test:3.0.5.RELEASE'
-    compile 'org.springframework:spring-orm:4.2.0.RELEASE'
+    compile 'org.springframework:spring-orm:4.1.7.RELEASE'
     compile 'org.springframework:spring-context:4.2.0.RELEASE'
 }
 
