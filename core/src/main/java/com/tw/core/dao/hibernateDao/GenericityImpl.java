@@ -1,6 +1,5 @@
 package com.tw.core.dao.hibernateDao;
 
-import com.tw.core.utils.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -28,7 +27,6 @@ public class GenericityImpl<T> implements GenericityInterface<T> {
     public List<T> getDataList(Class<T> tClass) {
 
         Session session = sessionFactory.getCurrentSession();
-//        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 
         Criteria criteria = session.createCriteria(tClass);
         List<T> list = criteria.list();
@@ -42,32 +40,22 @@ public class GenericityImpl<T> implements GenericityInterface<T> {
     @Override
     public void insertData(T t) {
 
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-
+        Session session = sessionFactory.getCurrentSession();
         session.save(t);
-
-        session.getTransaction().commit();
     }
 
     @Override
     public void deleteData(T t) {
 
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
+        Session session = sessionFactory.getCurrentSession();
 
         session.delete(t);
-
-        session.getTransaction().commit();
     }
 
     @Override
     public void updateData(T t) {
-        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
 
+        Session session = sessionFactory.getCurrentSession();
         session.update(t);
-
-        session.getTransaction().commit();
     }
 }
