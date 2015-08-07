@@ -39,13 +39,13 @@ public class CourseDaoTest {
 
         List<Course> courseList = genericityInterface.getDataList(Course.class);
 
-        assertEquals("游泳", courseList.get(1).getName());
+        assertEquals(2, courseList.size());
     }
 
-    @Test
+      @Test
     public void test_insert_data_function() {
 
-        Course course = new Course(new Employee(2), "滑雪");
+        Course course = new Course(new Employee(2), "杠铃");
 
         genericityInterface.insertData(course);
 
@@ -56,7 +56,7 @@ public class CourseDaoTest {
     @Test
     public void test_delete_data_function() {
 
-        Course course = new Course(1);
+        Course course = new Course(34);
         genericityInterface.deleteData(course);
 
         assertEquals(1, genericityInterface.getDataList(Course.class).size());
@@ -65,9 +65,10 @@ public class CourseDaoTest {
     @Test
     public void test_update_data_function() {
 
-        Course course = new Course(1, "哑铃", new Employee(1));
+        Course course = new Course(34, "哑铃", new Employee(1));
         genericityInterface.updateData(course);
 
         assertEquals("哑铃", genericityInterface.getDataList(Course.class).get(0).getName());
     }
 }
+
